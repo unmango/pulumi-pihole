@@ -64,19 +64,39 @@
         "variables": {
             "apiToken": {
                 "type": "string",
-                "description": "Experimental: Pi-hole API token. Conflicts with `password`.\n"
+                "description": "Experimental: Pi-hole API token. Conflicts with `password`.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "PIHOLE_API_TOKEN"
+                    ]
+                }
             },
             "caFile": {
                 "type": "string",
-                "description": "CA file to connect to Pi-hole with TLS\n"
+                "description": "CA file to connect to Pi-hole with TLS\n",
+                "defaultInfo": {
+                    "environment": [
+                        "PIHOLE_CA_FILE"
+                    ]
+                }
             },
             "password": {
                 "type": "string",
-                "description": "The admin password used to login to the admin dashboard. Conflicts with `api_token`.\n"
+                "description": "The admin password used to login to the admin dashboard. Conflicts with `api_token`.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "PIHOLE_PASSWORD"
+                    ]
+                }
             },
             "url": {
                 "type": "string",
-                "description": "URL where Pi-hole is deployed\n"
+                "description": "URL where Pi-hole is deployed\n",
+                "defaultInfo": {
+                    "environment": [
+                        "PIHOLE_URL"
+                    ]
+                }
             }
         }
     },
@@ -219,19 +239,39 @@
         "inputProperties": {
             "apiToken": {
                 "type": "string",
-                "description": "Experimental: Pi-hole API token. Conflicts with `password`.\n"
+                "description": "Experimental: Pi-hole API token. Conflicts with `password`.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "PIHOLE_API_TOKEN"
+                    ]
+                }
             },
             "caFile": {
                 "type": "string",
-                "description": "CA file to connect to Pi-hole with TLS\n"
+                "description": "CA file to connect to Pi-hole with TLS\n",
+                "defaultInfo": {
+                    "environment": [
+                        "PIHOLE_CA_FILE"
+                    ]
+                }
             },
             "password": {
                 "type": "string",
-                "description": "The admin password used to login to the admin dashboard. Conflicts with `api_token`.\n"
+                "description": "The admin password used to login to the admin dashboard. Conflicts with `api_token`.\n",
+                "defaultInfo": {
+                    "environment": [
+                        "PIHOLE_PASSWORD"
+                    ]
+                }
             },
             "url": {
                 "type": "string",
-                "description": "URL where Pi-hole is deployed\n"
+                "description": "URL where Pi-hole is deployed\n",
+                "defaultInfo": {
+                    "environment": [
+                        "PIHOLE_URL"
+                    ]
+                }
             }
         }
     },

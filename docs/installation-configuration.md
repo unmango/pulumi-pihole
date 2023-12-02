@@ -1,6 +1,6 @@
 ---
-title: Pihole Installation & Configuration
-meta_desc: Information on how to install the Pihole provider.
+title: Pi-hole Installation & Configuration
+meta_desc: Information on how to install the Pi-hole provider.
 layout: installation
 ---
 
@@ -13,7 +13,6 @@ The Pulumi Pihole provider is available as a package in all Pulumi languages:
 * Go: [`github.com/unmango/pulumi-pihole/sdk/go/pihole`](https://pkg.go.dev/github.com/unmango/pulumi-pihole/sdk/go/pihole)
 * .NET: [`UnMango.Pulumi.Pihole`](https://www.nuget.org/packages/UnMango.Pulumi.Pihole)
 
-
 ## Configuration
 
 > Note:  
@@ -22,8 +21,8 @@ The Pulumi Pihole provider is available as a package in all Pulumi languages:
 
 The following configuration points are available for the `pihole` provider:
 
-- `pihole:apiKey` (environment: `pihole_API_KEY`) - the API key for `pihole`
-- `pihole:region` (environment: `pihole_REGION`) - the region in which to deploy resources
+* `pihole:apiKey` (environment: `pihole_API_KEY`) - the API key for `pihole`
+* `pihole:region` (environment: `pihole_REGION`) - the region in which to deploy resources
 
 ### Provider Binary
 
