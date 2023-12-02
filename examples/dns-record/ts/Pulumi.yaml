@@ -1,0 +1,3 @@
+name: pulumi-pihole-dns-record-ts
+runtime: nodejs
+description: A Pulumi program demonstrating how to use a DNS Record in Typescript
