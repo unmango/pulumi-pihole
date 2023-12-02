@@ -6,6 +6,5 @@ import (
 )
 
 func NewProvider() *schema.Provider {
-	p, _ := provider.New()
-	return p
+	return provider.Provider()
 }

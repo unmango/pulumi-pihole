@@ -21,16 +21,15 @@ import (
 	"strings"
 
 	"github.com/ettle/strcase"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
+	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	shimprovider "github.com/ryanwholey/terraform-provider-pihole/shim"
 	"github.com/unmango/pulumi-pihole/provider/pkg/version"
 )
-
 
 // all of the token components used below.
 const (
@@ -94,7 +93,7 @@ func Provider() tfbridge.ProviderInfo {
 		// category/cloud tag helps with categorizing the package in the Pulumi Registry.
 		// For all available categories, see `Keywords` in
 		// https://www.pulumi.com/docs/guides/pulumi-packages/schema/#package.
-		Keywords:   []string{
+		Keywords: []string{
 			"pulumi",
 			"pihole",
 			"category/network",
@@ -117,12 +116,16 @@ func Provider() tfbridge.ProviderInfo {
 			// },
 		},
 		PreConfigureCallback: preConfigureCallback,
-		Resources:            map[string]*tfbridge.ResourceInfo{
+		Resources: map[string]*tfbridge.ResourceInfo{
 			// Map each resource in the Terraform provider to a Pulumi type.
 			//
 			// "aws_iam_role": {
 			//   Tok: makeResource(mainMod, "aws_iam_role"),
-		  // },
+			// },
+			"pihole_ad_blocker_status": {Tok: makeResource(mainMod, "pihole_ad_blocker_status")},
+			"pihole_cname_record":      {Tok: makeResource(mainMod, "pihole_cname_record")},
+			"pihole_dns_record":        {Tok: makeResource(mainMod, "pihole_dns_record")},
+			"pihole_group":             {Tok: makeResource(mainMod, "pihole_group")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// Map each data source in the Terraform provider to a Pulumi function.
@@ -130,6 +133,10 @@ func Provider() tfbridge.ProviderInfo {
 			// "aws_ami": {
 			//	Tok: makeDataSource(mainMod, "aws_ami"),
 			// },
+			"pihole_cname_records": {Tok: makeDataSource(mainMod, "pihole_cname_records")},
+			"pihole_dns_records":   {Tok: makeDataSource(mainMod, "pihole_dns_records")},
+			"pihole_domains":       {Tok: makeDataSource(mainMod, "pihole_domains")},
+			"pihole_groups":        {Tok: makeDataSource(mainMod, "pihole_groups")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			PackageName: "@unmango/pulumi-pihole",

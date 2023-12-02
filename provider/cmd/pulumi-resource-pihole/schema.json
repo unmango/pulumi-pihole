@@ -1,0 +1,535 @@
+{
+    "name": "pihole",
+    "displayName": "Pi-hole",
+    "description": "A Pulumi package for creating and managing Pi-hole resources",
+    "keywords": [
+        "pulumi",
+        "pihole",
+        "category/network"
+    ],
+    "homepage": "https://github.com/unmango/pulumi-pihole",
+    "license": "Apache-2.0",
+    "attribution": "This Pulumi package is based on the [`pihole` Terraform Provider](https://github.com/ryanwholey/terraform-provider-pihole).",
+    "repository": "https://github.com/unmango/pulumi-pihole",
+    "logoUrl": "https://raw.githubusercontent.com/unmango/pulumi-pihole/main/docs/pihole.png",
+    "pluginDownloadURL": "github://api.github.com/unmango/pulumi-pihole",
+    "publisher": "UnstoppableMango",
+    "meta": {
+        "moduleFormat": "(.*)(?:/[^/]*)"
+    },
+    "language": {
+        "csharp": {
+            "packageReferences": {
+                "Pulumi": "3.*"
+            },
+            "compatibility": "tfbridge20",
+            "rootNamespace": "UnMango.Pulumi"
+        },
+        "go": {
+            "importBasePath": "github.com/unmango/pulumi-pihole/sdk/go/pihole",
+            "generateResourceContainerTypes": true,
+            "generateExtraInputTypes": true
+        },
+        "java": {
+            "basePackage": "com.unmango.pulumi",
+            "buildFiles": "",
+            "gradleNexusPublishPluginVersion": "",
+            "gradleTest": ""
+        },
+        "nodejs": {
+            "packageName": "@unmango/pulumi-pihole",
+            "packageDescription": "A Pulumi package for creating and managing Pi-hole resources",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/ryanwholey/terraform-provider-pihole)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-pihole` repo](https://github.com/unmango/pulumi-pihole/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-pihole` repo](https://github.com/ryanwholey/terraform-provider-pihole/issues).",
+            "dependencies": {
+                "@pulumi/pulumi": "^3.0.0"
+            },
+            "devDependencies": {
+                "@types/mime": "^2.0.0",
+                "@types/node": "^10.0.0"
+            },
+            "compatibility": "tfbridge20",
+            "disableUnionOutputTypes": true
+        },
+        "python": {
+            "packageName": "unmango_pulumi_pihole",
+            "requires": {
+                "pulumi": "\u003e=3.0.0,\u003c4.0.0"
+            },
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/ryanwholey/terraform-provider-pihole)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-pihole` repo](https://github.com/unmango/pulumi-pihole/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-pihole` repo](https://github.com/ryanwholey/terraform-provider-pihole/issues).",
+            "compatibility": "tfbridge20",
+            "pyproject": {}
+        }
+    },
+    "config": {
+        "variables": {
+            "apiToken": {
+                "type": "string",
+                "description": "Experimental: Pi-hole API token. Conflicts with `password`.\n"
+            },
+            "caFile": {
+                "type": "string",
+                "description": "CA file to connect to Pi-hole with TLS\n"
+            },
+            "password": {
+                "type": "string",
+                "description": "The admin password used to login to the admin dashboard. Conflicts with `api_token`.\n"
+            },
+            "url": {
+                "type": "string",
+                "description": "URL where Pi-hole is deployed\n"
+            }
+        }
+    },
+    "types": {
+        "pihole:index/getCnameRecordsRecord:getCnameRecordsRecord": {
+            "properties": {
+                "domain": {
+                    "type": "string"
+                },
+                "target": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "domain",
+                "target"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "pihole:index/getDnsRecordsRecord:getDnsRecordsRecord": {
+            "properties": {
+                "domain": {
+                    "type": "string"
+                },
+                "ip": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "domain",
+                "ip"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "pihole:index/getDomainsDomain:getDomainsDomain": {
+            "properties": {
+                "comment": {
+                    "type": "string"
+                },
+                "domain": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "groupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "The ID of this resource.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Filter on allowed or denied domains. Must be either 'allow' or 'deny'.\n"
+                },
+                "wildcard": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object",
+            "required": [
+                "comment",
+                "domain",
+                "enabled",
+                "groupIds",
+                "id",
+                "type",
+                "wildcard"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "pihole:index/getGroupsGroup:getGroupsGroup": {
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "integer",
+                    "description": "The ID of this resource.\n"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "description",
+                "enabled",
+                "id",
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        }
+    },
+    "provider": {
+        "description": "The provider type for the pihole package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "properties": {
+            "apiToken": {
+                "type": "string",
+                "description": "Experimental: Pi-hole API token. Conflicts with `password`.\n"
+            },
+            "caFile": {
+                "type": "string",
+                "description": "CA file to connect to Pi-hole with TLS\n"
+            },
+            "password": {
+                "type": "string",
+                "description": "The admin password used to login to the admin dashboard. Conflicts with `api_token`.\n"
+            },
+            "url": {
+                "type": "string",
+                "description": "URL where Pi-hole is deployed\n"
+            }
+        },
+        "inputProperties": {
+            "apiToken": {
+                "type": "string",
+                "description": "Experimental: Pi-hole API token. Conflicts with `password`.\n"
+            },
+            "caFile": {
+                "type": "string",
+                "description": "CA file to connect to Pi-hole with TLS\n"
+            },
+            "password": {
+                "type": "string",
+                "description": "The admin password used to login to the admin dashboard. Conflicts with `api_token`.\n"
+            },
+            "url": {
+                "type": "string",
+                "description": "URL where Pi-hole is deployed\n"
+            }
+        }
+    },
+    "resources": {
+        "pihole:index/adBlockerStatus:AdBlockerStatus": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pihole from \"@unmango/pulumi-pihole\";\n\nconst status = new pihole.AdBlockerStatus(\"status\", {enabled: true});\n```\n```python\nimport pulumi\nimport unmango_pulumi_pihole as pihole\n\nstatus = pihole.AdBlockerStatus(\"status\", enabled=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pihole = UnMango.Pulumi.Pihole;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var status = new Pihole.AdBlockerStatus(\"status\", new()\n    {\n        Enabled = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/unmango/pulumi-pihole/sdk/go/pihole\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pihole.NewAdBlockerStatus(ctx, \"status\", \u0026pihole.AdBlockerStatusArgs{\n\t\t\tEnabled: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pihole.AdBlockerStatus;\nimport com.pulumi.pihole.AdBlockerStatusArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var status = new AdBlockerStatus(\"status\", AdBlockerStatusArgs.builder()        \n            .enabled(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  status:\n    type: pihole:AdBlockerStatus\n    properties:\n      enabled: true\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether to enable the Pi-hole ad blocker\n"
+                }
+            },
+            "required": [
+                "enabled"
+            ],
+            "inputProperties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether to enable the Pi-hole ad blocker\n"
+                }
+            },
+            "requiredInputs": [
+                "enabled"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AdBlockerStatus resources.\n",
+                "properties": {
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether to enable the Pi-hole ad blocker\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pihole:index/cnameRecord:CnameRecord": {
+            "description": "Manages a Pi-hole CNAME record\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pihole from \"@unmango/pulumi-pihole\";\n\nconst record = new pihole.CnameRecord(\"record\", {\n    domain: \"foo.com\",\n    target: \"bar.com\",\n});\n```\n```python\nimport pulumi\nimport unmango_pulumi_pihole as pihole\n\nrecord = pihole.CnameRecord(\"record\",\n    domain=\"foo.com\",\n    target=\"bar.com\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pihole = UnMango.Pulumi.Pihole;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var record = new Pihole.CnameRecord(\"record\", new()\n    {\n        Domain = \"foo.com\",\n        Target = \"bar.com\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/unmango/pulumi-pihole/sdk/go/pihole\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pihole.NewCnameRecord(ctx, \"record\", \u0026pihole.CnameRecordArgs{\n\t\t\tDomain: pulumi.String(\"foo.com\"),\n\t\t\tTarget: pulumi.String(\"bar.com\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pihole.CnameRecord;\nimport com.pulumi.pihole.CnameRecordArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var record = new CnameRecord(\"record\", CnameRecordArgs.builder()        \n            .domain(\"foo.com\")\n            .target(\"bar.com\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  record:\n    type: pihole:CnameRecord\n    properties:\n      domain: foo.com\n      target: bar.com\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import pihole:index/cnameRecord:CnameRecord record foo.com\n```\n\n ",
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "description": "Domain to create a CNAME record for\n"
+                },
+                "target": {
+                    "type": "string",
+                    "description": "Value of the CNAME record where traffic will be directed to from the configured domain value\n"
+                }
+            },
+            "required": [
+                "domain",
+                "target"
+            ],
+            "inputProperties": {
+                "domain": {
+                    "type": "string",
+                    "description": "Domain to create a CNAME record for\n",
+                    "willReplaceOnChanges": true
+                },
+                "target": {
+                    "type": "string",
+                    "description": "Value of the CNAME record where traffic will be directed to from the configured domain value\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "domain",
+                "target"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CnameRecord resources.\n",
+                "properties": {
+                    "domain": {
+                        "type": "string",
+                        "description": "Domain to create a CNAME record for\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "target": {
+                        "type": "string",
+                        "description": "Value of the CNAME record where traffic will be directed to from the configured domain value\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pihole:index/dnsRecord:DnsRecord": {
+            "description": "Manages a Pi-hole DNS record\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pihole from \"@unmango/pulumi-pihole\";\n\nconst record = new pihole.DnsRecord(\"record\", {\n    domain: \"foo.com\",\n    ip: \"127.0.0.1\",\n});\n```\n```python\nimport pulumi\nimport unmango_pulumi_pihole as pihole\n\nrecord = pihole.DnsRecord(\"record\",\n    domain=\"foo.com\",\n    ip=\"127.0.0.1\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pihole = UnMango.Pulumi.Pihole;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var record = new Pihole.DnsRecord(\"record\", new()\n    {\n        Domain = \"foo.com\",\n        Ip = \"127.0.0.1\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/unmango/pulumi-pihole/sdk/go/pihole\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pihole.NewDnsRecord(ctx, \"record\", \u0026pihole.DnsRecordArgs{\n\t\t\tDomain: pulumi.String(\"foo.com\"),\n\t\t\tIp:     pulumi.String(\"127.0.0.1\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pihole.DnsRecord;\nimport com.pulumi.pihole.DnsRecordArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var record = new DnsRecord(\"record\", DnsRecordArgs.builder()        \n            .domain(\"foo.com\")\n            .ip(\"127.0.0.1\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  record:\n    type: pihole:DnsRecord\n    properties:\n      domain: foo.com\n      ip: 127.0.0.1\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import pihole:index/dnsRecord:DnsRecord record foo.com\n```\n\n ",
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "description": "DNS record domain\n"
+                },
+                "ip": {
+                    "type": "string",
+                    "description": "IP address to route traffic to from the DNS record domain\n"
+                }
+            },
+            "required": [
+                "domain",
+                "ip"
+            ],
+            "inputProperties": {
+                "domain": {
+                    "type": "string",
+                    "description": "DNS record domain\n",
+                    "willReplaceOnChanges": true
+                },
+                "ip": {
+                    "type": "string",
+                    "description": "IP address to route traffic to from the DNS record domain\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "domain",
+                "ip"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DnsRecord resources.\n",
+                "properties": {
+                    "domain": {
+                        "type": "string",
+                        "description": "DNS record domain\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "ip": {
+                        "type": "string",
+                        "description": "IP address to route traffic to from the DNS record domain\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "pihole:index/group:Group": {
+            "description": "A construct to associate clients with allow/deny lists and/or adlists\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pihole from \"@unmango/pulumi-pihole\";\n\nconst group = new pihole.Group(\"group\", {description: \"A group for clients with more relaxed allow/deny rules\"});\n```\n```python\nimport pulumi\nimport unmango_pulumi_pihole as pihole\n\ngroup = pihole.Group(\"group\", description=\"A group for clients with more relaxed allow/deny rules\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pihole = UnMango.Pulumi.Pihole;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var @group = new Pihole.Group(\"group\", new()\n    {\n        Description = \"A group for clients with more relaxed allow/deny rules\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/unmango/pulumi-pihole/sdk/go/pihole\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pihole.NewGroup(ctx, \"group\", \u0026pihole.GroupArgs{\n\t\t\tDescription: pulumi.String(\"A group for clients with more relaxed allow/deny rules\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pihole.Group;\nimport com.pulumi.pihole.GroupArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var group = new Group(\"group\", GroupArgs.builder()        \n            .description(\"A group for clients with more relaxed allow/deny rules\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  group:\n    type: pihole:Group\n    properties:\n      description: A group for clients with more relaxed allow/deny rules\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import pihole:index/group:Group group 1\n```\n\n ",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Group description\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether to enable the group\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Group name\n"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "Group description\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether to enable the group\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Group name\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Group resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "Group description\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether to enable the group\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Group name\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "functions": {
+        "pihole:index/getCnameRecords:getCnameRecords": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pihole from \"@pulumi/pihole\";\n\nconst records = pihole.getCnameRecords({});\n```\n```python\nimport pulumi\nimport pulumi_pihole as pihole\n\nrecords = pihole.get_cname_records()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pihole = Pulumi.Pihole;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var records = Pihole.GetCnameRecords.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/unmango/pulumi-pihole/sdk/go/pihole\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pihole.GetCnameRecords(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pihole.PiholeFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var records = PiholeFunctions.getCnameRecords();\n\n    }\n}\n```\n```yaml\nvariables:\n  records:\n    fn::invoke:\n      Function: pihole:getCnameRecords\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "outputs": {
+                "description": "A collection of values returned by getCnameRecords.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "records": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pihole:index/getCnameRecordsRecord:getCnameRecordsRecord"
+                        },
+                        "description": "List of CNAME Pi-hole records\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "records",
+                    "id"
+                ]
+            }
+        },
+        "pihole:index/getDnsRecords:getDnsRecords": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pihole from \"@pulumi/pihole\";\n\nconst records = pihole.getDnsRecords({});\n```\n```python\nimport pulumi\nimport pulumi_pihole as pihole\n\nrecords = pihole.get_dns_records()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pihole = Pulumi.Pihole;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var records = Pihole.GetDnsRecords.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/unmango/pulumi-pihole/sdk/go/pihole\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pihole.GetDnsRecords(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pihole.PiholeFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var records = PiholeFunctions.getDnsRecords();\n\n    }\n}\n```\n```yaml\nvariables:\n  records:\n    fn::invoke:\n      Function: pihole:getDnsRecords\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "outputs": {
+                "description": "A collection of values returned by getDnsRecords.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "records": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pihole:index/getDnsRecordsRecord:getDnsRecordsRecord"
+                        },
+                        "description": "List of Pi-hole DNS records\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "records",
+                    "id"
+                ]
+            }
+        },
+        "pihole:index/getDomains:getDomains": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pihole from \"@pulumi/pihole\";\n\nconst all = pihole.getDomains({});\nconst denied = pihole.getDomains({\n    type: \"deny\",\n});\n```\n```python\nimport pulumi\nimport pulumi_pihole as pihole\n\nall = pihole.get_domains()\ndenied = pihole.get_domains(type=\"deny\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pihole = Pulumi.Pihole;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var all = Pihole.GetDomains.Invoke();\n\n    var denied = Pihole.GetDomains.Invoke(new()\n    {\n        Type = \"deny\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/unmango/pulumi-pihole/sdk/go/pihole\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pihole.GetDomains(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = pihole.GetDomains(ctx, \u0026pihole.GetDomainsArgs{\n\t\t\tType: pulumi.StringRef(\"deny\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pihole.PiholeFunctions;\nimport com.pulumi.pihole.inputs.GetDomainsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var all = PiholeFunctions.getDomains();\n\n        final var denied = PiholeFunctions.getDomains(GetDomainsArgs.builder()\n            .type(\"deny\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  all:\n    fn::invoke:\n      Function: pihole:getDomains\n      Arguments: {}\n  denied:\n    fn::invoke:\n      Function: pihole:getDomains\n      Arguments:\n        type: deny\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getDomains.\n",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "description": "Filter on allowed or denied domains. Must be either 'allow' or 'deny'.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDomains.\n",
+                "properties": {
+                    "domains": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pihole:index/getDomainsDomain:getDomainsDomain"
+                        },
+                        "description": "Domains\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Filter on allowed or denied domains. Must be either 'allow' or 'deny'.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "domains",
+                    "id"
+                ]
+            }
+        },
+        "pihole:index/getGroups:getGroups": {
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as pihole from \"@pulumi/pihole\";\n\nconst records = pihole.getCnameRecords({});\n```\n```python\nimport pulumi\nimport pulumi_pihole as pihole\n\nrecords = pihole.get_cname_records()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Pihole = Pulumi.Pihole;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var records = Pihole.GetCnameRecords.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\t\"github.com/unmango/pulumi-pihole/sdk/go/pihole\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := pihole.GetCnameRecords(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.pihole.PiholeFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var records = PiholeFunctions.getCnameRecords();\n\n    }\n}\n```\n```yaml\nvariables:\n  records:\n    fn::invoke:\n      Function: pihole:getCnameRecords\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "outputs": {
+                "description": "A collection of values returned by getGroups.\n",
+                "properties": {
+                    "groups": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/pihole:index/getGroupsGroup:getGroupsGroup"
+                        },
+                        "description": "List of groups to manage client lists and block lists\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "groups",
+                    "id"
+                ]
+            }
+        }
+    }
+}
