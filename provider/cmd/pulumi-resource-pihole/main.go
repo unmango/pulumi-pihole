@@ -20,8 +20,8 @@ import (
 	_ "embed"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	"github.com/unmango/pulumi-pihole/provider/pkg/version"
 	pihole "github.com/unmango/pulumi-pihole/provider"
+	"github.com/unmango/pulumi-pihole/provider/pkg/version"
 )
 
 //go:embed schema-embed.json
