@@ -1,6 +1,7 @@
 archives:
   - id: archive
-    name_template: '{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}'before:
+    name_template: '{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}'
+before:
   hooks:
     - make tfgen
 builds:
@@ -17,7 +18,8 @@ builds:
       - linux
     ldflags:
       # The line below MUST align with the module in current provider/go.mod
-      - -X github.com/unmango/pulumi-pihole/provider/pkg/version.Version={{.Tag }}    main: ./cmd/pulumi-resource-pihole/
+      - -X github.com/unmango/pulumi-pihole/provider/pkg/version.Version={{.Tag }}
+    main: ./cmd/pulumi-resource-pihole/
 changelog:
   skip: true
 release:
