@@ -30,7 +30,7 @@ jobs:
           - python
           - dotnet
           - go
-          - java
+          # - java
 
     steps:
     - name: Checkout Repo

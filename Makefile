@@ -84,7 +84,7 @@ build_go:: install_plugins tfgen # build the go sdk
 
 build_java:: PACKAGE_VERSION := $(shell pulumictl get version --language generic)
 build_java:: $(WORKING_DIR)/bin/$(JAVA_GEN)
-	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java  --build gradle-nexus
+	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 	cd sdk/java/ && \
 		echo "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17" > go.mod && \
 		gradle --console=plain build
@@ -127,10 +127,12 @@ install_python_sdk::
 
 install_go_sdk::
 
+install_java_sdk:
+
 install_nodejs_sdk::
 	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
 
-install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
+install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk install_java_sdk
 
 test::
 	cd examples && go test -v -tags=all -parallel ${TESTPARALLELISM} -timeout 2h
