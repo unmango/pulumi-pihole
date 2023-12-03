@@ -5,6 +5,6 @@
   ],
   "ignorePaths": [
     "**/node_modules/**",
-    "sdk/**"
+    "**/sdk/**"
   ]
 }
