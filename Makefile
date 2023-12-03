@@ -17,15 +17,11 @@ WORKING_DIR      := $(shell pwd)
 
 GO_MAJOR_VERSION := $(shell go version | cut -c 14- | cut -d' ' -f1 | cut -d'.' -f1)
 GO_MINOR_VERSION := $(shell go version | cut -c 14- | cut -d' ' -f1 | cut -d'.' -f2)
-####
-# Defines the required Go version. This is a safeguard, because
-# the (local) version must match the version specified in .github/workflows/release.yml
-# otherwise publkishing the Go SDK of the provider will fail
 REQUIRED_GO_MAJOR_VERSION := 1
 REQUIRED_GO_MINOR_VERSION := 21
 GO_VERSION_VALIDATION_ERR_MSG := Golang version $(REQUIRED_GO_MAJOR_VERSION).$(REQUIRED_GO_MINOR_VERSION) is required
 
-.PHONY: development provider build_sdks build_nodejs build_dotnet build_go build_python cleanup validate_go_version
+.PHONY: development provider build_sdks build_nodejs build_dotnet build_go build_python build_java cleanup validate_go_version
 
 validate_go_version: ## Validates the installed version of go
 	@if [ $(GO_MAJOR_VERSION) -ne $(REQUIRED_GO_MAJOR_VERSION) ]; then \
@@ -51,7 +47,7 @@ tfgen:: install_plugins
 provider:: tfgen install_plugins # build the provider binary
 	(cd provider && go build -o $(WORKING_DIR)/bin/${PROVIDER} -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION}" ${PROJECT}/${PROVIDER_PATH}/cmd/${PROVIDER})
 
-build_sdks:: install_plugins provider build_nodejs build_python build_go build_dotnet # build all the sdks
+build_sdks:: install_plugins provider build_nodejs build_python build_go build_dotnet build_java # build all the sdks
 
 build_nodejs:: VERSION := $(shell pulumictl get version --language javascript)
 build_nodejs:: install_plugins tfgen # build the node sdk
@@ -88,7 +84,7 @@ build_go:: install_plugins tfgen # build the go sdk
 
 build_java:: PACKAGE_VERSION := $(shell pulumictl get version --language generic)
 build_java:: $(WORKING_DIR)/bin/$(JAVA_GEN)
-	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java  --build gradle-nexus
+	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 	cd sdk/java/ && \
 		echo "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17" > go.mod && \
 		gradle --console=plain build
@@ -112,7 +108,7 @@ generate::
 	go generate provider/resources.go
 
 clean::
-	rm -rf sdk/{dotnet,nodejs,go,python} sdk/go.sum
+	rm -rf sdk/{dotnet,nodejs,go,python,java} sdk/go.sum
 
 .PHONY: fmt
 fmt::
@@ -131,10 +127,12 @@ install_python_sdk::
 
 install_go_sdk::
 
+install_java_sdk:
+
 install_nodejs_sdk::
 	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
 
-install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
+install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk install_java_sdk
 
 test::
 	cd examples && go test -v -tags=all -parallel ${TESTPARALLELISM} -timeout 2h

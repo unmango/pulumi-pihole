@@ -15,9 +15,9 @@
 package main
 
 import (
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 	pihole "github.com/unmango/pulumi-pihole/provider"
 	"github.com/unmango/pulumi-pihole/provider/pkg/version"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 )
 
 func main() {
