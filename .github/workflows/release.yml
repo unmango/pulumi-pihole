@@ -164,4 +164,4 @@ jobs:
           - python
           - dotnet
           - go
-          # - java
+          - java
