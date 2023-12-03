@@ -8,6 +8,7 @@
 Pulumi.*.yaml
 **/node_modules/
 *.DS_Store
+.envrc
 
 **/command-output/
 

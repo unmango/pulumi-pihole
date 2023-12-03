@@ -32,7 +32,7 @@ namespace UnMango.Pulumi.Pihole
 
         private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("pihole");
 
-        private static readonly __Value<string?> _apiToken = new __Value<string?>(() => __config.Get("apiToken"));
+        private static readonly __Value<string?> _apiToken = new __Value<string?>(() => __config.Get("apiToken") ?? Utilities.GetEnv("PIHOLE_API_TOKEN"));
         /// <summary>
         /// Experimental: Pi-hole API token. Conflicts with `password`.
         /// </summary>
@@ -42,7 +42,7 @@ namespace UnMango.Pulumi.Pihole
             set => _apiToken.Set(value);
         }
 
-        private static readonly __Value<string?> _caFile = new __Value<string?>(() => __config.Get("caFile"));
+        private static readonly __Value<string?> _caFile = new __Value<string?>(() => __config.Get("caFile") ?? Utilities.GetEnv("PIHOLE_CA_FILE"));
         /// <summary>
         /// CA file to connect to Pi-hole with TLS
         /// </summary>
@@ -52,7 +52,7 @@ namespace UnMango.Pulumi.Pihole
             set => _caFile.Set(value);
         }
 
-        private static readonly __Value<string?> _password = new __Value<string?>(() => __config.Get("password"));
+        private static readonly __Value<string?> _password = new __Value<string?>(() => __config.Get("password") ?? Utilities.GetEnv("PIHOLE_PASSWORD"));
         /// <summary>
         /// The admin password used to login to the admin dashboard. Conflicts with `api_token`.
         /// </summary>
@@ -62,7 +62,7 @@ namespace UnMango.Pulumi.Pihole
             set => _password.Set(value);
         }
 
-        private static readonly __Value<string?> _url = new __Value<string?>(() => __config.Get("url"));
+        private static readonly __Value<string?> _url = new __Value<string?>(() => __config.Get("url") ?? Utilities.GetEnv("PIHOLE_URL"));
         /// <summary>
         /// URL where Pi-hole is deployed
         /// </summary>

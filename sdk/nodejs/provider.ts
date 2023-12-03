@@ -53,10 +53,10 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["apiToken"] = args ? args.apiToken : undefined;
-            resourceInputs["caFile"] = args ? args.caFile : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["apiToken"] = (args ? args.apiToken : undefined) ?? utilities.getEnv("PIHOLE_API_TOKEN");
+            resourceInputs["caFile"] = (args ? args.caFile : undefined) ?? utilities.getEnv("PIHOLE_CA_FILE");
+            resourceInputs["password"] = (args ? args.password : undefined) ?? utilities.getEnv("PIHOLE_PASSWORD");
+            resourceInputs["url"] = (args ? args.url : undefined) ?? utilities.getEnv("PIHOLE_URL");
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Provider.__pulumiType, name, resourceInputs, opts);

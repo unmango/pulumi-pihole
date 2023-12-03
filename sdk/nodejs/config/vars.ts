@@ -13,7 +13,7 @@ const __config = new pulumi.Config("pihole");
 export declare const apiToken: string | undefined;
 Object.defineProperty(exports, "apiToken", {
     get() {
-        return __config.get("apiToken");
+        return __config.get("apiToken") ?? utilities.getEnv("PIHOLE_API_TOKEN");
     },
     enumerable: true,
 });
@@ -24,7 +24,7 @@ Object.defineProperty(exports, "apiToken", {
 export declare const caFile: string | undefined;
 Object.defineProperty(exports, "caFile", {
     get() {
-        return __config.get("caFile");
+        return __config.get("caFile") ?? utilities.getEnv("PIHOLE_CA_FILE");
     },
     enumerable: true,
 });
@@ -35,7 +35,7 @@ Object.defineProperty(exports, "caFile", {
 export declare const password: string | undefined;
 Object.defineProperty(exports, "password", {
     get() {
-        return __config.get("password");
+        return __config.get("password") ?? utilities.getEnv("PIHOLE_PASSWORD");
     },
     enumerable: true,
 });
@@ -46,7 +46,7 @@ Object.defineProperty(exports, "password", {
 export declare const url: string | undefined;
 Object.defineProperty(exports, "url", {
     get() {
-        return __config.get("url");
+        return __config.get("url") ?? utilities.getEnv("PIHOLE_URL");
     },
     enumerable: true,
 });

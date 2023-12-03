@@ -98,6 +98,10 @@ namespace UnMango.Pulumi.Pihole
 
         public ProviderArgs()
         {
+            ApiToken = Utilities.GetEnv("PIHOLE_API_TOKEN");
+            CaFile = Utilities.GetEnv("PIHOLE_CA_FILE");
+            Password = Utilities.GetEnv("PIHOLE_PASSWORD");
+            Url = Utilities.GetEnv("PIHOLE_URL");
         }
         public static new ProviderArgs Empty => new ProviderArgs();
     }

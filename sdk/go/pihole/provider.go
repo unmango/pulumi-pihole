@@ -36,6 +36,26 @@ func NewProvider(ctx *pulumi.Context,
 		args = &ProviderArgs{}
 	}
 
+	if args.ApiToken == nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "PIHOLE_API_TOKEN"); d != nil {
+			args.ApiToken = pulumi.StringPtr(d.(string))
+		}
+	}
+	if args.CaFile == nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "PIHOLE_CA_FILE"); d != nil {
+			args.CaFile = pulumi.StringPtr(d.(string))
+		}
+	}
+	if args.Password == nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "PIHOLE_PASSWORD"); d != nil {
+			args.Password = pulumi.StringPtr(d.(string))
+		}
+	}
+	if args.Url == nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "PIHOLE_URL"); d != nil {
+			args.Url = pulumi.StringPtr(d.(string))
+		}
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:pihole", name, args, &resource, opts...)

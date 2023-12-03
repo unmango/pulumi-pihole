@@ -25,12 +25,20 @@ class ProviderArgs:
         :param pulumi.Input[str] password: The admin password used to login to the admin dashboard. Conflicts with `api_token`.
         :param pulumi.Input[str] url: URL where Pi-hole is deployed
         """
+        if api_token is None:
+            api_token = _utilities.get_env('PIHOLE_API_TOKEN')
         if api_token is not None:
             pulumi.set(__self__, "api_token", api_token)
+        if ca_file is None:
+            ca_file = _utilities.get_env('PIHOLE_CA_FILE')
         if ca_file is not None:
             pulumi.set(__self__, "ca_file", ca_file)
+        if password is None:
+            password = _utilities.get_env('PIHOLE_PASSWORD')
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if url is None:
+            url = _utilities.get_env('PIHOLE_URL')
         if url is not None:
             pulumi.set(__self__, "url", url)
 
@@ -146,9 +154,17 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
+            if api_token is None:
+                api_token = _utilities.get_env('PIHOLE_API_TOKEN')
             __props__.__dict__["api_token"] = api_token
+            if ca_file is None:
+                ca_file = _utilities.get_env('PIHOLE_CA_FILE')
             __props__.__dict__["ca_file"] = ca_file
+            if password is None:
+                password = _utilities.get_env('PIHOLE_PASSWORD')
             __props__.__dict__["password"] = password
+            if url is None:
+                url = _utilities.get_env('PIHOLE_URL')
             __props__.__dict__["url"] = url
         super(Provider, __self__).__init__(
             'pihole',

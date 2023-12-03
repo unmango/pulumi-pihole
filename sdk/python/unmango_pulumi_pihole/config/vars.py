@@ -20,26 +20,26 @@ class _ExportableConfig(types.ModuleType):
         """
         Experimental: Pi-hole API token. Conflicts with `password`.
         """
-        return __config__.get('apiToken')
+        return __config__.get('apiToken') or _utilities.get_env('PIHOLE_API_TOKEN')
 
     @property
     def ca_file(self) -> Optional[str]:
         """
         CA file to connect to Pi-hole with TLS
         """
-        return __config__.get('caFile')
+        return __config__.get('caFile') or _utilities.get_env('PIHOLE_CA_FILE')
 
     @property
     def password(self) -> Optional[str]:
         """
         The admin password used to login to the admin dashboard. Conflicts with `api_token`.
         """
-        return __config__.get('password')
+        return __config__.get('password') or _utilities.get_env('PIHOLE_PASSWORD')
 
     @property
     def url(self) -> Optional[str]:
         """
         URL where Pi-hole is deployed
         """
-        return __config__.get('url')
+        return __config__.get('url') or _utilities.get_env('PIHOLE_URL')
 

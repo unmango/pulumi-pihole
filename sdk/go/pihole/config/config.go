@@ -13,20 +13,52 @@ var _ = internal.GetEnvOrDefault
 
 // Experimental: Pi-hole API token. Conflicts with `password`.
 func GetApiToken(ctx *pulumi.Context) string {
-	return config.Get(ctx, "pihole:apiToken")
+	v, err := config.Try(ctx, "pihole:apiToken")
+	if err == nil {
+		return v
+	}
+	var value string
+	if d := internal.GetEnvOrDefault(nil, nil, "PIHOLE_API_TOKEN"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // CA file to connect to Pi-hole with TLS
 func GetCaFile(ctx *pulumi.Context) string {
-	return config.Get(ctx, "pihole:caFile")
+	v, err := config.Try(ctx, "pihole:caFile")
+	if err == nil {
+		return v
+	}
+	var value string
+	if d := internal.GetEnvOrDefault(nil, nil, "PIHOLE_CA_FILE"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // The admin password used to login to the admin dashboard. Conflicts with `api_token`.
 func GetPassword(ctx *pulumi.Context) string {
-	return config.Get(ctx, "pihole:password")
+	v, err := config.Try(ctx, "pihole:password")
+	if err == nil {
+		return v
+	}
+	var value string
+	if d := internal.GetEnvOrDefault(nil, nil, "PIHOLE_PASSWORD"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // URL where Pi-hole is deployed
 func GetUrl(ctx *pulumi.Context) string {
-	return config.Get(ctx, "pihole:url")
+	v, err := config.Try(ctx, "pihole:url")
+	if err == nil {
+		return v
+	}
+	var value string
+	if d := internal.GetEnvOrDefault(nil, nil, "PIHOLE_URL"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
