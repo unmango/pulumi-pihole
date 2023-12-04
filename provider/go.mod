@@ -11,7 +11,7 @@ require (
 	github.com/ettle/strcase v0.2.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.60.1
 	github.com/pulumi/pulumi/sdk/v3 v3.81.0
-	github.com/ryanwholey/terraform-provider-pihole/shim v0.0.0-00010101000000-000000000000
+	github.com/ryanwholey/terraform-provider-pihole/shim v0.2.0
 )
 
 require (
