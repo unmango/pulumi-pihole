@@ -159,12 +159,10 @@
                     }
                 },
                 "id": {
-                    "type": "integer",
-                    "description": "The ID of this resource.\n"
+                    "type": "integer"
                 },
                 "type": {
-                    "type": "string",
-                    "description": "Filter on allowed or denied domains. Must be either 'allow' or 'deny'.\n"
+                    "type": "string"
                 },
                 "wildcard": {
                     "type": "boolean"
@@ -195,8 +193,7 @@
                     "type": "boolean"
                 },
                 "id": {
-                    "type": "integer",
-                    "description": "The ID of this resource.\n"
+                    "type": "integer"
                 },
                 "name": {
                     "type": "string"
@@ -515,8 +512,7 @@
                 "description": "A collection of arguments for invoking getDomains.\n",
                 "properties": {
                     "type": {
-                        "type": "string",
-                        "description": "Filter on allowed or denied domains. Must be either 'allow' or 'deny'.\n"
+                        "type": "string"
                     }
                 },
                 "type": "object"
