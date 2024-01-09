@@ -1,3 +1,4 @@
 upstream-provider-name: terraform-provider-pihole
+upstream-provider-org: ryanwholey
 remove-plugins: true
 pr-reviewers: UnstoppableMango
