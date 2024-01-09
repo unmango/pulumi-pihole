@@ -9,7 +9,6 @@ import (
 
 	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 	"github.com/unmango/pulumi-pihole/sdk/go/pihole/internal"
 )
 
@@ -125,12 +124,6 @@ func (i *AdBlockerStatus) ToAdBlockerStatusOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(AdBlockerStatusOutput)
 }
 
-func (i *AdBlockerStatus) ToOutput(ctx context.Context) pulumix.Output[*AdBlockerStatus] {
-	return pulumix.Output[*AdBlockerStatus]{
-		OutputState: i.ToAdBlockerStatusOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AdBlockerStatusArrayInput is an input type that accepts AdBlockerStatusArray and AdBlockerStatusArrayOutput values.
 // You can construct a concrete instance of `AdBlockerStatusArrayInput` via:
 //
@@ -154,12 +147,6 @@ func (i AdBlockerStatusArray) ToAdBlockerStatusArrayOutput() AdBlockerStatusArra
 
 func (i AdBlockerStatusArray) ToAdBlockerStatusArrayOutputWithContext(ctx context.Context) AdBlockerStatusArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AdBlockerStatusArrayOutput)
-}
-
-func (i AdBlockerStatusArray) ToOutput(ctx context.Context) pulumix.Output[[]*AdBlockerStatus] {
-	return pulumix.Output[[]*AdBlockerStatus]{
-		OutputState: i.ToAdBlockerStatusArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AdBlockerStatusMapInput is an input type that accepts AdBlockerStatusMap and AdBlockerStatusMapOutput values.
@@ -187,12 +174,6 @@ func (i AdBlockerStatusMap) ToAdBlockerStatusMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AdBlockerStatusMapOutput)
 }
 
-func (i AdBlockerStatusMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AdBlockerStatus] {
-	return pulumix.Output[map[string]*AdBlockerStatus]{
-		OutputState: i.ToAdBlockerStatusMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AdBlockerStatusOutput struct{ *pulumi.OutputState }
 
 func (AdBlockerStatusOutput) ElementType() reflect.Type {
@@ -205,12 +186,6 @@ func (o AdBlockerStatusOutput) ToAdBlockerStatusOutput() AdBlockerStatusOutput {
 
 func (o AdBlockerStatusOutput) ToAdBlockerStatusOutputWithContext(ctx context.Context) AdBlockerStatusOutput {
 	return o
-}
-
-func (o AdBlockerStatusOutput) ToOutput(ctx context.Context) pulumix.Output[*AdBlockerStatus] {
-	return pulumix.Output[*AdBlockerStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether to enable the Pi-hole ad blocker
@@ -232,12 +207,6 @@ func (o AdBlockerStatusArrayOutput) ToAdBlockerStatusArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o AdBlockerStatusArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AdBlockerStatus] {
-	return pulumix.Output[[]*AdBlockerStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AdBlockerStatusArrayOutput) Index(i pulumi.IntInput) AdBlockerStatusOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AdBlockerStatus {
 		return vs[0].([]*AdBlockerStatus)[vs[1].(int)]
@@ -256,12 +225,6 @@ func (o AdBlockerStatusMapOutput) ToAdBlockerStatusMapOutput() AdBlockerStatusMa
 
 func (o AdBlockerStatusMapOutput) ToAdBlockerStatusMapOutputWithContext(ctx context.Context) AdBlockerStatusMapOutput {
 	return o
-}
-
-func (o AdBlockerStatusMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AdBlockerStatus] {
-	return pulumix.Output[map[string]*AdBlockerStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AdBlockerStatusMapOutput) MapIndex(k pulumi.StringInput) AdBlockerStatusOutput {

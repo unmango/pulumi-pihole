@@ -32,9 +32,6 @@ export function getDomains(args?: GetDomainsArgs, opts?: pulumi.InvokeOptions): 
  * A collection of arguments for invoking getDomains.
  */
 export interface GetDomainsArgs {
-    /**
-     * Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
-     */
     type?: string;
 }
 
@@ -76,8 +73,5 @@ export function getDomainsOutput(args?: GetDomainsOutputArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getDomains.
  */
 export interface GetDomainsOutputArgs {
-    /**
-     * Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
-     */
     type?: pulumi.Input<string>;
 }

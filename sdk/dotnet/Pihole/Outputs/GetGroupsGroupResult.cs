@@ -16,9 +16,6 @@ namespace UnMango.Pulumi.Pihole.Outputs
     {
         public readonly string Description;
         public readonly bool Enabled;
-        /// <summary>
-        /// The ID of this resource.
-        /// </summary>
         public readonly int Id;
         public readonly string Name;
 

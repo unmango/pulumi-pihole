@@ -16,15 +16,7 @@ public final class GetDomainsDomain {
     private String domain;
     private Boolean enabled;
     private List<Integer> groupIds;
-    /**
-     * @return The ID of this resource.
-     * 
-     */
     private Integer id;
-    /**
-     * @return Filter on allowed or denied domains. Must be either &#39;allow&#39; or &#39;deny&#39;.
-     * 
-     */
     private String type;
     private Boolean wildcard;
 
@@ -41,17 +33,9 @@ public final class GetDomainsDomain {
     public List<Integer> groupIds() {
         return this.groupIds;
     }
-    /**
-     * @return The ID of this resource.
-     * 
-     */
     public Integer id() {
         return this.id;
     }
-    /**
-     * @return Filter on allowed or denied domains. Must be either &#39;allow&#39; or &#39;deny&#39;.
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -4,6 +4,9 @@
 package pihole
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/unmango/pulumi-pihole/sdk/go/pihole/internal"
 )
@@ -47,4 +50,44 @@ type GetDnsRecordsResult struct {
 	Id string `pulumi:"id"`
 	// List of Pi-hole DNS records
 	Records []GetDnsRecordsRecord `pulumi:"records"`
+}
+
+func GetDnsRecordsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetDnsRecordsResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetDnsRecordsResult, error) {
+		r, err := GetDnsRecords(ctx, opts...)
+		var s GetDnsRecordsResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetDnsRecordsResultOutput)
+}
+
+// A collection of values returned by getDnsRecords.
+type GetDnsRecordsResultOutput struct{ *pulumi.OutputState }
+
+func (GetDnsRecordsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDnsRecordsResult)(nil)).Elem()
+}
+
+func (o GetDnsRecordsResultOutput) ToGetDnsRecordsResultOutput() GetDnsRecordsResultOutput {
+	return o
+}
+
+func (o GetDnsRecordsResultOutput) ToGetDnsRecordsResultOutputWithContext(ctx context.Context) GetDnsRecordsResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetDnsRecordsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDnsRecordsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// List of Pi-hole DNS records
+func (o GetDnsRecordsResultOutput) Records() GetDnsRecordsRecordArrayOutput {
+	return o.ApplyT(func(v GetDnsRecordsResult) []GetDnsRecordsRecord { return v.Records }).(GetDnsRecordsRecordArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetDnsRecordsResultOutput{})
 }

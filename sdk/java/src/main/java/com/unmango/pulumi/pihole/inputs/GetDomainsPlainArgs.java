@@ -14,17 +14,9 @@ public final class GetDomainsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetDomainsPlainArgs Empty = new GetDomainsPlainArgs();
 
-    /**
-     * Filter on allowed or denied domains. Must be either &#39;allow&#39; or &#39;deny&#39;.
-     * 
-     */
     @Import(name="type")
     private @Nullable String type;
 
-    /**
-     * @return Filter on allowed or denied domains. Must be either &#39;allow&#39; or &#39;deny&#39;.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
@@ -53,12 +45,6 @@ public final class GetDomainsPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetDomainsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param type Filter on allowed or denied domains. Must be either &#39;allow&#39; or &#39;deny&#39;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable String type) {
             $.type = type;
             return this;

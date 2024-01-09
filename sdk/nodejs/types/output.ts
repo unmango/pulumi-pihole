@@ -20,13 +20,7 @@ export interface GetDomainsDomain {
     domain: string;
     enabled: boolean;
     groupIds: number[];
-    /**
-     * The ID of this resource.
-     */
     id: number;
-    /**
-     * Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
-     */
     type: string;
     wildcard: boolean;
 }
@@ -34,9 +28,6 @@ export interface GetDomainsDomain {
 export interface GetGroupsGroup {
     description: string;
     enabled: boolean;
-    /**
-     * The ID of this resource.
-     */
     id: number;
     name: string;
 }

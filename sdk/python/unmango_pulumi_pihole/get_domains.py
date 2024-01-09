@@ -81,9 +81,6 @@ def get_domains(type: Optional[str] = None,
     all = pihole.get_domains()
     denied = pihole.get_domains(type="deny")
     ```
-
-
-    :param str type: Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
     """
     __args__ = dict()
     __args__['type'] = type
@@ -109,8 +106,5 @@ def get_domains_output(type: Optional[pulumi.Input[Optional[str]]] = None,
     all = pihole.get_domains()
     denied = pihole.get_domains(type="deny")
     ```
-
-
-    :param str type: Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
     """
     ...

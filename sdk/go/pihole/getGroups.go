@@ -4,6 +4,9 @@
 package pihole
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/unmango/pulumi-pihole/sdk/go/pihole/internal"
 )
@@ -47,4 +50,44 @@ type GetGroupsResult struct {
 	Groups []GetGroupsGroup `pulumi:"groups"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+}
+
+func GetGroupsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetGroupsResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetGroupsResult, error) {
+		r, err := GetGroups(ctx, opts...)
+		var s GetGroupsResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetGroupsResultOutput)
+}
+
+// A collection of values returned by getGroups.
+type GetGroupsResultOutput struct{ *pulumi.OutputState }
+
+func (GetGroupsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupsResult)(nil)).Elem()
+}
+
+func (o GetGroupsResultOutput) ToGetGroupsResultOutput() GetGroupsResultOutput {
+	return o
+}
+
+func (o GetGroupsResultOutput) ToGetGroupsResultOutputWithContext(ctx context.Context) GetGroupsResultOutput {
+	return o
+}
+
+// List of groups to manage client lists and block lists
+func (o GetGroupsResultOutput) Groups() GetGroupsGroupArrayOutput {
+	return o.ApplyT(func(v GetGroupsResult) []GetGroupsGroup { return v.Groups }).(GetGroupsGroupArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetGroupsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetGroupsResultOutput{})
 }

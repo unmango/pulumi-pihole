@@ -64,10 +64,6 @@ class GetDomainsDomainResult(dict):
                  id: int,
                  type: str,
                  wildcard: bool):
-        """
-        :param int id: The ID of this resource.
-        :param str type: Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
-        """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "enabled", enabled)
@@ -99,17 +95,11 @@ class GetDomainsDomainResult(dict):
     @property
     @pulumi.getter
     def id(self) -> int:
-        """
-        The ID of this resource.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
-        """
         return pulumi.get(self, "type")
 
     @property
@@ -125,9 +115,6 @@ class GetGroupsGroupResult(dict):
                  enabled: bool,
                  id: int,
                  name: str):
-        """
-        :param int id: The ID of this resource.
-        """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "id", id)
@@ -146,9 +133,6 @@ class GetGroupsGroupResult(dict):
     @property
     @pulumi.getter
     def id(self) -> int:
-        """
-        The ID of this resource.
-        """
         return pulumi.get(self, "id")
 
     @property

@@ -1,0 +1,3 @@
+upstream-provider-name: terraform-provider-pihole
+remove-plugins: true
+pr-reviewers: UnstoppableMango
