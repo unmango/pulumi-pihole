@@ -14,6 +14,7 @@ __all__ = [
     'GetDnsRecordsResult',
     'AwaitableGetDnsRecordsResult',
     'get_dns_records',
+    'get_dns_records_output',
 ]
 
 @pulumi.output_type
@@ -74,3 +75,18 @@ def get_dns_records(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGet
     return AwaitableGetDnsRecordsResult(
         id=pulumi.get(__ret__, 'id'),
         records=pulumi.get(__ret__, 'records'))
+
+
+@_utilities.lift_output_func(get_dns_records)
+def get_dns_records_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsRecordsResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pihole as pihole
+
+    records = pihole.get_dns_records()
+    ```
+    """
+    ...

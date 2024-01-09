@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 	"github.com/unmango/pulumi-pihole/sdk/go/pihole/internal"
 )
 
@@ -53,7 +52,6 @@ func GetDomains(ctx *pulumi.Context, args *GetDomainsArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getDomains.
 type GetDomainsArgs struct {
-	// Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
 	Type *string `pulumi:"type"`
 }
 
@@ -82,7 +80,6 @@ func GetDomainsOutput(ctx *pulumi.Context, args GetDomainsOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getDomains.
 type GetDomainsOutputArgs struct {
-	// Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -103,12 +100,6 @@ func (o GetDomainsResultOutput) ToGetDomainsResultOutput() GetDomainsResultOutpu
 
 func (o GetDomainsResultOutput) ToGetDomainsResultOutputWithContext(ctx context.Context) GetDomainsResultOutput {
 	return o
-}
-
-func (o GetDomainsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainsResult] {
-	return pulumix.Output[GetDomainsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Domains

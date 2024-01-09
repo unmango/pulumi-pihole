@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 	"github.com/unmango/pulumi-pihole/sdk/go/pihole/internal"
 )
 
@@ -47,12 +46,6 @@ func (i GetCnameRecordsRecordArgs) ToGetCnameRecordsRecordOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetCnameRecordsRecordOutput)
 }
 
-func (i GetCnameRecordsRecordArgs) ToOutput(ctx context.Context) pulumix.Output[GetCnameRecordsRecord] {
-	return pulumix.Output[GetCnameRecordsRecord]{
-		OutputState: i.ToGetCnameRecordsRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCnameRecordsRecordArrayInput is an input type that accepts GetCnameRecordsRecordArray and GetCnameRecordsRecordArrayOutput values.
 // You can construct a concrete instance of `GetCnameRecordsRecordArrayInput` via:
 //
@@ -78,12 +71,6 @@ func (i GetCnameRecordsRecordArray) ToGetCnameRecordsRecordArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetCnameRecordsRecordArrayOutput)
 }
 
-func (i GetCnameRecordsRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCnameRecordsRecord] {
-	return pulumix.Output[[]GetCnameRecordsRecord]{
-		OutputState: i.ToGetCnameRecordsRecordArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCnameRecordsRecordOutput struct{ *pulumi.OutputState }
 
 func (GetCnameRecordsRecordOutput) ElementType() reflect.Type {
@@ -96,12 +83,6 @@ func (o GetCnameRecordsRecordOutput) ToGetCnameRecordsRecordOutput() GetCnameRec
 
 func (o GetCnameRecordsRecordOutput) ToGetCnameRecordsRecordOutputWithContext(ctx context.Context) GetCnameRecordsRecordOutput {
 	return o
-}
-
-func (o GetCnameRecordsRecordOutput) ToOutput(ctx context.Context) pulumix.Output[GetCnameRecordsRecord] {
-	return pulumix.Output[GetCnameRecordsRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCnameRecordsRecordOutput) Domain() pulumi.StringOutput {
@@ -124,12 +105,6 @@ func (o GetCnameRecordsRecordArrayOutput) ToGetCnameRecordsRecordArrayOutput() G
 
 func (o GetCnameRecordsRecordArrayOutput) ToGetCnameRecordsRecordArrayOutputWithContext(ctx context.Context) GetCnameRecordsRecordArrayOutput {
 	return o
-}
-
-func (o GetCnameRecordsRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCnameRecordsRecord] {
-	return pulumix.Output[[]GetCnameRecordsRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCnameRecordsRecordArrayOutput) Index(i pulumi.IntInput) GetCnameRecordsRecordOutput {
@@ -171,12 +146,6 @@ func (i GetDnsRecordsRecordArgs) ToGetDnsRecordsRecordOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetDnsRecordsRecordOutput)
 }
 
-func (i GetDnsRecordsRecordArgs) ToOutput(ctx context.Context) pulumix.Output[GetDnsRecordsRecord] {
-	return pulumix.Output[GetDnsRecordsRecord]{
-		OutputState: i.ToGetDnsRecordsRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDnsRecordsRecordArrayInput is an input type that accepts GetDnsRecordsRecordArray and GetDnsRecordsRecordArrayOutput values.
 // You can construct a concrete instance of `GetDnsRecordsRecordArrayInput` via:
 //
@@ -202,12 +171,6 @@ func (i GetDnsRecordsRecordArray) ToGetDnsRecordsRecordArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetDnsRecordsRecordArrayOutput)
 }
 
-func (i GetDnsRecordsRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDnsRecordsRecord] {
-	return pulumix.Output[[]GetDnsRecordsRecord]{
-		OutputState: i.ToGetDnsRecordsRecordArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDnsRecordsRecordOutput struct{ *pulumi.OutputState }
 
 func (GetDnsRecordsRecordOutput) ElementType() reflect.Type {
@@ -220,12 +183,6 @@ func (o GetDnsRecordsRecordOutput) ToGetDnsRecordsRecordOutput() GetDnsRecordsRe
 
 func (o GetDnsRecordsRecordOutput) ToGetDnsRecordsRecordOutputWithContext(ctx context.Context) GetDnsRecordsRecordOutput {
 	return o
-}
-
-func (o GetDnsRecordsRecordOutput) ToOutput(ctx context.Context) pulumix.Output[GetDnsRecordsRecord] {
-	return pulumix.Output[GetDnsRecordsRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDnsRecordsRecordOutput) Domain() pulumi.StringOutput {
@@ -250,12 +207,6 @@ func (o GetDnsRecordsRecordArrayOutput) ToGetDnsRecordsRecordArrayOutputWithCont
 	return o
 }
 
-func (o GetDnsRecordsRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDnsRecordsRecord] {
-	return pulumix.Output[[]GetDnsRecordsRecord]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetDnsRecordsRecordArrayOutput) Index(i pulumi.IntInput) GetDnsRecordsRecordOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDnsRecordsRecord {
 		return vs[0].([]GetDnsRecordsRecord)[vs[1].(int)]
@@ -267,9 +218,7 @@ type GetDomainsDomain struct {
 	Domain   string `pulumi:"domain"`
 	Enabled  bool   `pulumi:"enabled"`
 	GroupIds []int  `pulumi:"groupIds"`
-	// The ID of this resource.
-	Id int `pulumi:"id"`
-	// Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
+	Id       int    `pulumi:"id"`
 	Type     string `pulumi:"type"`
 	Wildcard bool   `pulumi:"wildcard"`
 }
@@ -290,11 +239,9 @@ type GetDomainsDomainArgs struct {
 	Domain   pulumi.StringInput   `pulumi:"domain"`
 	Enabled  pulumi.BoolInput     `pulumi:"enabled"`
 	GroupIds pulumi.IntArrayInput `pulumi:"groupIds"`
-	// The ID of this resource.
-	Id pulumi.IntInput `pulumi:"id"`
-	// Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
-	Type     pulumi.StringInput `pulumi:"type"`
-	Wildcard pulumi.BoolInput   `pulumi:"wildcard"`
+	Id       pulumi.IntInput      `pulumi:"id"`
+	Type     pulumi.StringInput   `pulumi:"type"`
+	Wildcard pulumi.BoolInput     `pulumi:"wildcard"`
 }
 
 func (GetDomainsDomainArgs) ElementType() reflect.Type {
@@ -307,12 +254,6 @@ func (i GetDomainsDomainArgs) ToGetDomainsDomainOutput() GetDomainsDomainOutput 
 
 func (i GetDomainsDomainArgs) ToGetDomainsDomainOutputWithContext(ctx context.Context) GetDomainsDomainOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainsDomainOutput)
-}
-
-func (i GetDomainsDomainArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainsDomain] {
-	return pulumix.Output[GetDomainsDomain]{
-		OutputState: i.ToGetDomainsDomainOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GetDomainsDomainArrayInput is an input type that accepts GetDomainsDomainArray and GetDomainsDomainArrayOutput values.
@@ -340,12 +281,6 @@ func (i GetDomainsDomainArray) ToGetDomainsDomainArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainsDomainArrayOutput)
 }
 
-func (i GetDomainsDomainArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainsDomain] {
-	return pulumix.Output[[]GetDomainsDomain]{
-		OutputState: i.ToGetDomainsDomainArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDomainsDomainOutput struct{ *pulumi.OutputState }
 
 func (GetDomainsDomainOutput) ElementType() reflect.Type {
@@ -358,12 +293,6 @@ func (o GetDomainsDomainOutput) ToGetDomainsDomainOutput() GetDomainsDomainOutpu
 
 func (o GetDomainsDomainOutput) ToGetDomainsDomainOutputWithContext(ctx context.Context) GetDomainsDomainOutput {
 	return o
-}
-
-func (o GetDomainsDomainOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainsDomain] {
-	return pulumix.Output[GetDomainsDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDomainsDomainOutput) Comment() pulumi.StringOutput {
@@ -382,12 +311,10 @@ func (o GetDomainsDomainOutput) GroupIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v GetDomainsDomain) []int { return v.GroupIds }).(pulumi.IntArrayOutput)
 }
 
-// The ID of this resource.
 func (o GetDomainsDomainOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDomainsDomain) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
 func (o GetDomainsDomainOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainsDomain) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -410,12 +337,6 @@ func (o GetDomainsDomainArrayOutput) ToGetDomainsDomainArrayOutputWithContext(ct
 	return o
 }
 
-func (o GetDomainsDomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainsDomain] {
-	return pulumix.Output[[]GetDomainsDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetDomainsDomainArrayOutput) Index(i pulumi.IntInput) GetDomainsDomainOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainsDomain {
 		return vs[0].([]GetDomainsDomain)[vs[1].(int)]
@@ -425,9 +346,8 @@ func (o GetDomainsDomainArrayOutput) Index(i pulumi.IntInput) GetDomainsDomainOu
 type GetGroupsGroup struct {
 	Description string `pulumi:"description"`
 	Enabled     bool   `pulumi:"enabled"`
-	// The ID of this resource.
-	Id   int    `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id          int    `pulumi:"id"`
+	Name        string `pulumi:"name"`
 }
 
 // GetGroupsGroupInput is an input type that accepts GetGroupsGroupArgs and GetGroupsGroupOutput values.
@@ -444,9 +364,8 @@ type GetGroupsGroupInput interface {
 type GetGroupsGroupArgs struct {
 	Description pulumi.StringInput `pulumi:"description"`
 	Enabled     pulumi.BoolInput   `pulumi:"enabled"`
-	// The ID of this resource.
-	Id   pulumi.IntInput    `pulumi:"id"`
-	Name pulumi.StringInput `pulumi:"name"`
+	Id          pulumi.IntInput    `pulumi:"id"`
+	Name        pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetGroupsGroupArgs) ElementType() reflect.Type {
@@ -459,12 +378,6 @@ func (i GetGroupsGroupArgs) ToGetGroupsGroupOutput() GetGroupsGroupOutput {
 
 func (i GetGroupsGroupArgs) ToGetGroupsGroupOutputWithContext(ctx context.Context) GetGroupsGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupsGroupOutput)
-}
-
-func (i GetGroupsGroupArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupsGroup] {
-	return pulumix.Output[GetGroupsGroup]{
-		OutputState: i.ToGetGroupsGroupOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GetGroupsGroupArrayInput is an input type that accepts GetGroupsGroupArray and GetGroupsGroupArrayOutput values.
@@ -492,12 +405,6 @@ func (i GetGroupsGroupArray) ToGetGroupsGroupArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupsGroupArrayOutput)
 }
 
-func (i GetGroupsGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupsGroup] {
-	return pulumix.Output[[]GetGroupsGroup]{
-		OutputState: i.ToGetGroupsGroupArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetGroupsGroupOutput struct{ *pulumi.OutputState }
 
 func (GetGroupsGroupOutput) ElementType() reflect.Type {
@@ -512,12 +419,6 @@ func (o GetGroupsGroupOutput) ToGetGroupsGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o GetGroupsGroupOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupsGroup] {
-	return pulumix.Output[GetGroupsGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetGroupsGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsGroup) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -526,7 +427,6 @@ func (o GetGroupsGroupOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetGroupsGroup) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The ID of this resource.
 func (o GetGroupsGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupsGroup) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -547,12 +447,6 @@ func (o GetGroupsGroupArrayOutput) ToGetGroupsGroupArrayOutput() GetGroupsGroupA
 
 func (o GetGroupsGroupArrayOutput) ToGetGroupsGroupArrayOutputWithContext(ctx context.Context) GetGroupsGroupArrayOutput {
 	return o
-}
-
-func (o GetGroupsGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupsGroup] {
-	return pulumix.Output[[]GetGroupsGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetGroupsGroupOutput {

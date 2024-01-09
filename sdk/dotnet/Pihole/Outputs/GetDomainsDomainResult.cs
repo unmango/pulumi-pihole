@@ -18,13 +18,7 @@ namespace UnMango.Pulumi.Pihole.Outputs
         public readonly string Domain;
         public readonly bool Enabled;
         public readonly ImmutableArray<int> GroupIds;
-        /// <summary>
-        /// The ID of this resource.
-        /// </summary>
         public readonly int Id;
-        /// <summary>
-        /// Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
-        /// </summary>
         public readonly string Type;
         public readonly bool Wildcard;
 

@@ -14,6 +14,7 @@ __all__ = [
     'GetCnameRecordsResult',
     'AwaitableGetCnameRecordsResult',
     'get_cname_records',
+    'get_cname_records_output',
 ]
 
 @pulumi.output_type
@@ -74,3 +75,18 @@ def get_cname_records(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
     return AwaitableGetCnameRecordsResult(
         id=pulumi.get(__ret__, 'id'),
         records=pulumi.get(__ret__, 'records'))
+
+
+@_utilities.lift_output_func(get_cname_records)
+def get_cname_records_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCnameRecordsResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pihole as pihole
+
+    records = pihole.get_cname_records()
+    ```
+    """
+    ...

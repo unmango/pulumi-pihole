@@ -14,6 +14,7 @@ __all__ = [
     'GetGroupsResult',
     'AwaitableGetGroupsResult',
     'get_groups',
+    'get_groups_output',
 ]
 
 @pulumi.output_type
@@ -74,3 +75,18 @@ def get_groups(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroup
     return AwaitableGetGroupsResult(
         groups=pulumi.get(__ret__, 'groups'),
         id=pulumi.get(__ret__, 'id'))
+
+
+@_utilities.lift_output_func(get_groups)
+def get_groups_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupsResult]:
+    """
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_pihole as pihole
+
+    records = pihole.get_cname_records()
+    ```
+    """
+    ...

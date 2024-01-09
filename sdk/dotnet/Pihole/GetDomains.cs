@@ -72,9 +72,6 @@ namespace UnMango.Pulumi.Pihole
 
     public sealed class GetDomainsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
-        /// </summary>
         [Input("type")]
         public string? Type { get; set; }
 
@@ -86,9 +83,6 @@ namespace UnMango.Pulumi.Pihole
 
     public sealed class GetDomainsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

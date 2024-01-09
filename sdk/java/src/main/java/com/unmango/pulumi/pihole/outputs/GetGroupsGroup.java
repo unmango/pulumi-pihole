@@ -13,10 +13,6 @@ import java.util.Objects;
 public final class GetGroupsGroup {
     private String description;
     private Boolean enabled;
-    /**
-     * @return The ID of this resource.
-     * 
-     */
     private Integer id;
     private String name;
 
@@ -27,10 +23,6 @@ public final class GetGroupsGroup {
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return The ID of this resource.
-     * 
-     */
     public Integer id() {
         return this.id;
     }
