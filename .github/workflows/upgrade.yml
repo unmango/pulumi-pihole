@@ -1,13 +1,21 @@
-name: Automated Upgrades
+name: Upgrade provider
 
 on:
-  schedule:
-    - cron: 0 0 * * *
   workflow_dispatch:
+  issues:
+    types:
+      - opened
+  schedule:
+    - cron: 0 5 * * *
 
 jobs:
-  upgrade:
+  upgrade_provider:
+    name: upgrade-provider
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
     steps:
       - name: Call upgrade provider action
         uses: pulumi/pulumi-upgrade-provider-action@v0.0.11
