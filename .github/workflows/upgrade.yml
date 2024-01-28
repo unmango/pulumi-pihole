@@ -8,6 +8,9 @@ on:
   schedule:
     - cron: 0 5 * * *
 
+env:
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   upgrade_provider:
     name: upgrade-provider
@@ -19,5 +22,3 @@ jobs:
     steps:
       - name: Call upgrade provider action
         uses: pulumi/pulumi-upgrade-provider-action@v0.0.11
-        env:
-          GH_TOKEN: ${{ github.token }}
