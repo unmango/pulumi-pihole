@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,13 +39,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import pihole:index/group:Group group 1
-//
+// $ pulumi import pihole:index/group:Group group 1
 // ```
 type Group struct {
 	pulumi.CustomResourceState

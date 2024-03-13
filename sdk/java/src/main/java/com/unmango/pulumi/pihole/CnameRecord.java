@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Manages a Pi-hole CNAME record
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,11 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import pihole:index/cnameRecord:CnameRecord record foo.com
+ * $ pulumi import pihole:index/cnameRecord:CnameRecord record foo.com
  * ```
  * 
  */
