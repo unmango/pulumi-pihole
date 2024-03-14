@@ -137,17 +137,19 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import unmango_pulumi_pihole as pihole
 
         group = pihole.Group("group", description="A group for clients with more relaxed allow/deny rules")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import pihole:index/group:Group group 1
+        $ pulumi import pihole:index/group:Group group 1
         ```
 
         :param str resource_name: The name of the resource.
@@ -167,17 +169,19 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import unmango_pulumi_pihole as pihole
 
         group = pihole.Group("group", description="A group for clients with more relaxed allow/deny rules")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import pihole:index/group:Group group 1
+        $ pulumi import pihole:index/group:Group group 1
         ```
 
         :param str resource_name: The name of the resource.
