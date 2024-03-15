@@ -13,6 +13,7 @@ namespace UnMango.Pulumi.Pihole
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,6 +29,7 @@ namespace UnMango.Pulumi.Pihole
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [PiholeResourceType("pihole:index/adBlockerStatus:AdBlockerStatus")]
     public partial class AdBlockerStatus : global::Pulumi.CustomResource

@@ -102,6 +102,7 @@ class CnameRecord(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import unmango_pulumi_pihole as pihole
@@ -110,11 +111,12 @@ class CnameRecord(pulumi.CustomResource):
             domain="foo.com",
             target="bar.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import pihole:index/cnameRecord:CnameRecord record foo.com
+        $ pulumi import pihole:index/cnameRecord:CnameRecord record foo.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -133,6 +135,7 @@ class CnameRecord(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import unmango_pulumi_pihole as pihole
@@ -141,11 +144,12 @@ class CnameRecord(pulumi.CustomResource):
             domain="foo.com",
             target="bar.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         ```sh
-         $ pulumi import pihole:index/cnameRecord:CnameRecord record foo.com
+        $ pulumi import pihole:index/cnameRecord:CnameRecord record foo.com
         ```
 
         :param str resource_name: The name of the resource.
