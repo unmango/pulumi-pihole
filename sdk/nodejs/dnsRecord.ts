@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pihole from "@unmango/pulumi-pihole";
@@ -18,11 +19,12 @@ import * as utilities from "./utilities";
  *     ip: "127.0.0.1",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import pihole:index/dnsRecord:DnsRecord record foo.com
+ * $ pulumi import pihole:index/dnsRecord:DnsRecord record foo.com
  * ```
  */
 export class DnsRecord extends pulumi.CustomResource {

@@ -7,12 +7,14 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pihole from "@unmango/pulumi-pihole";
  *
  * const status = new pihole.AdBlockerStatus("status", {enabled: true});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class AdBlockerStatus extends pulumi.CustomResource {
     /**

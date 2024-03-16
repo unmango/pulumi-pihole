@@ -9,12 +9,14 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pihole from "@pulumi/pihole";
  *
  * const records = pihole.getCnameRecords({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCnameRecords(opts?: pulumi.InvokeOptions): Promise<GetCnameRecordsResult> {
 
@@ -39,12 +41,14 @@ export interface GetCnameRecordsResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pihole from "@pulumi/pihole";
  *
  * const records = pihole.getCnameRecords({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCnameRecordsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCnameRecordsResult> {
     return pulumi.output(getCnameRecords(opts))

@@ -74,6 +74,7 @@ def get_domains(type: Optional[str] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pihole as pihole
@@ -81,6 +82,7 @@ def get_domains(type: Optional[str] = None,
     all = pihole.get_domains()
     denied = pihole.get_domains(type="deny")
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     __args__['type'] = type
@@ -99,6 +101,7 @@ def get_domains_output(type: Optional[pulumi.Input[Optional[str]]] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_pihole as pihole
@@ -106,5 +109,6 @@ def get_domains_output(type: Optional[pulumi.Input[Optional[str]]] = None,
     all = pihole.get_domains()
     denied = pihole.get_domains(type="deny")
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...
