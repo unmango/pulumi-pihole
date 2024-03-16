@@ -3,7 +3,7 @@ module github.com/unmango/pulumi-pihole/provider
 go 1.21
 
 replace (
-	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20230912190043-e6d96b3b8f7e
+	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 7ac578ce47fc
 	github.com/ryanwholey/terraform-provider-pihole/shim => ./shim
 )
 
