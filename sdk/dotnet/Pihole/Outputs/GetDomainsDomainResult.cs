@@ -14,12 +14,33 @@ namespace UnMango.Pulumi.Pihole.Outputs
     [OutputType]
     public sealed class GetDomainsDomainResult
     {
+        /// <summary>
+        /// Comments associated with the domain
+        /// </summary>
         public readonly string Comment;
+        /// <summary>
+        /// Domain
+        /// </summary>
         public readonly string Domain;
+        /// <summary>
+        /// Whether the domain rule is enabled
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// Groups to which the domain is associated
+        /// </summary>
         public readonly ImmutableArray<int> GroupIds;
+        /// <summary>
+        /// Domain ID
+        /// </summary>
         public readonly int Id;
+        /// <summary>
+        /// Whether the doamin is on the allow or deny list
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Whether the domain should be interpreted using a wildcard parser
+        /// </summary>
         public readonly bool Wildcard;
 
         [OutputConstructor]

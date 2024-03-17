@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pihole from "@unmango/pulumi-pihole";
@@ -18,11 +19,12 @@ import * as utilities from "./utilities";
  *     target: "bar.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import pihole:index/cnameRecord:CnameRecord record foo.com
+ * $ pulumi import pihole:index/cnameRecord:CnameRecord record foo.com
  * ```
  */
 export class CnameRecord extends pulumi.CustomResource {
