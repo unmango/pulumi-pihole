@@ -9,12 +9,14 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pihole from "@pulumi/pihole";
  *
  * const records = pihole.getCnameRecords({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getGroups(opts?: pulumi.InvokeOptions): Promise<GetGroupsResult> {
 
@@ -39,12 +41,14 @@ export interface GetGroupsResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pihole from "@pulumi/pihole";
  *
  * const records = pihole.getCnameRecords({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getGroupsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupsResult> {
     return pulumi.output(getGroups(opts))

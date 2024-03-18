@@ -15,6 +15,7 @@ namespace UnMango.Pulumi.Pihole
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,11 +32,12 @@ namespace UnMango.Pulumi.Pihole
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import pihole:index/cnameRecord:CnameRecord record foo.com
+    /// $ pulumi import pihole:index/cnameRecord:CnameRecord record foo.com
     /// ```
     /// </summary>
     [PiholeResourceType("pihole:index/cnameRecord:CnameRecord")]
