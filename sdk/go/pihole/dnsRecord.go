@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,13 +41,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import pihole:index/dnsRecord:DnsRecord record foo.com
-//
+// $ pulumi import pihole:index/dnsRecord:DnsRecord record foo.com
 // ```
 type DnsRecord struct {
 	pulumi.CustomResourceState
