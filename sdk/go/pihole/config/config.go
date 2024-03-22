@@ -37,7 +37,7 @@ func GetCaFile(ctx *pulumi.Context) string {
 	return value
 }
 
-// The admin password used to login to the admin dashboard. Conflicts with `api_token`.
+// The admin password used to login to the admin dashboard. Conflicts with `apiToken`.
 func GetPassword(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "pihole:password")
 	if err == nil {
