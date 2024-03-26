@@ -9,17 +9,19 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pihole from "@unmango/pulumi-pihole";
  *
  * const group = new pihole.Group("group", {description: "A group for clients with more relaxed allow/deny rules"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * ```sh
- *  $ pulumi import pihole:index/group:Group group 1
+ * $ pulumi import pihole:index/group:Group group 1
  * ```
  */
 export class Group extends pulumi.CustomResource {

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,13 +41,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import pihole:index/cnameRecord:CnameRecord record foo.com
-//
+// $ pulumi import pihole:index/cnameRecord:CnameRecord record foo.com
 // ```
 type CnameRecord struct {
 	pulumi.CustomResourceState
