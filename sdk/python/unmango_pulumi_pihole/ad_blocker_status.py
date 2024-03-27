@@ -68,12 +68,14 @@ class AdBlockerStatus(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import unmango_pulumi_pihole as pihole
 
         status = pihole.AdBlockerStatus("status", enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -88,12 +90,14 @@ class AdBlockerStatus(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import unmango_pulumi_pihole as pihole
 
         status = pihole.AdBlockerStatus("status", enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param AdBlockerStatusArgs args: The arguments to use to populate this resource's properties.
