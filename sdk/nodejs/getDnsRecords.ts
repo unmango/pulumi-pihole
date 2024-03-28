@@ -9,12 +9,14 @@ import * as utilities from "./utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pihole from "@pulumi/pihole";
  *
  * const records = pihole.getDnsRecords({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDnsRecords(opts?: pulumi.InvokeOptions): Promise<GetDnsRecordsResult> {
 
@@ -39,12 +41,14 @@ export interface GetDnsRecordsResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as pihole from "@pulumi/pihole";
  *
  * const records = pihole.getDnsRecords({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDnsRecordsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsRecordsResult> {
     return pulumi.output(getDnsRecords(opts))
