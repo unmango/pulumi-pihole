@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import pihole:index/group:Group group 1
+ * $ pulumi import pihole:index/group:Group group 1
  * ```
  */
 export class Group extends pulumi.CustomResource {
