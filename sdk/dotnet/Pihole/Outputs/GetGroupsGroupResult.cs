@@ -14,9 +14,21 @@ namespace UnMango.Pulumi.Pihole.Outputs
     [OutputType]
     public sealed class GetGroupsGroupResult
     {
+        /// <summary>
+        /// Group description
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// Whether the group is enabled
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// Group ID
+        /// </summary>
         public readonly int Id;
+        /// <summary>
+        /// Name of the group
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCnameRecordsRecord {
+    /**
+     * @return CNAME record domain
+     * 
+     */
     private String domain;
+    /**
+     * @return CNAME target value where traffic is routed to from the domain
+     * 
+     */
     private String target;
 
     private GetCnameRecordsRecord() {}
+    /**
+     * @return CNAME record domain
+     * 
+     */
     public String domain() {
         return this.domain;
     }
+    /**
+     * @return CNAME target value where traffic is routed to from the domain
+     * 
+     */
     public String target() {
         return this.target;
     }
