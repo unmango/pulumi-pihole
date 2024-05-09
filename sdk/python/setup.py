@@ -18,7 +18,7 @@ def readme():
 
 
 setup(name='unmango_pulumi_pihole',
-      python_requires='>=3.7',
+      python_requires='>=3.8',
       version=VERSION,
       description="A Pulumi package for creating and managing Pi-hole resources",
       long_description=readme(),
