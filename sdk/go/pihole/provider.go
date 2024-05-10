@@ -22,7 +22,7 @@ type Provider struct {
 	ApiToken pulumi.StringPtrOutput `pulumi:"apiToken"`
 	// CA file to connect to Pi-hole with TLS
 	CaFile pulumi.StringPtrOutput `pulumi:"caFile"`
-	// The admin password used to login to the admin dashboard. Conflicts with `api_token`.
+	// The admin password used to login to the admin dashboard. Conflicts with `apiToken`.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// URL where Pi-hole is deployed
 	Url pulumi.StringPtrOutput `pulumi:"url"`
@@ -69,7 +69,7 @@ type providerArgs struct {
 	ApiToken *string `pulumi:"apiToken"`
 	// CA file to connect to Pi-hole with TLS
 	CaFile *string `pulumi:"caFile"`
-	// The admin password used to login to the admin dashboard. Conflicts with `api_token`.
+	// The admin password used to login to the admin dashboard. Conflicts with `apiToken`.
 	Password *string `pulumi:"password"`
 	// URL where Pi-hole is deployed
 	Url *string `pulumi:"url"`
@@ -81,7 +81,7 @@ type ProviderArgs struct {
 	ApiToken pulumi.StringPtrInput
 	// CA file to connect to Pi-hole with TLS
 	CaFile pulumi.StringPtrInput
-	// The admin password used to login to the admin dashboard. Conflicts with `api_token`.
+	// The admin password used to login to the admin dashboard. Conflicts with `apiToken`.
 	Password pulumi.StringPtrInput
 	// URL where Pi-hole is deployed
 	Url pulumi.StringPtrInput
@@ -134,7 +134,7 @@ func (o ProviderOutput) CaFile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.CaFile }).(pulumi.StringPtrOutput)
 }
 
-// The admin password used to login to the admin dashboard. Conflicts with `api_token`.
+// The admin password used to login to the admin dashboard. Conflicts with `apiToken`.
 func (o ProviderOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }

@@ -13,9 +13,7 @@ namespace UnMango.Pulumi.Pihole
     public static class GetCnameRecords
     {
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -29,16 +27,12 @@ namespace UnMango.Pulumi.Pihole
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCnameRecordsResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCnameRecordsResult>("pihole:index/getCnameRecords:getCnameRecords", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -52,8 +46,6 @@ namespace UnMango.Pulumi.Pihole
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetCnameRecordsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCnameRecordsResult>("pihole:index/getCnameRecords:getCnameRecords", InvokeArgs.Empty, options.WithDefaults());

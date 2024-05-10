@@ -14,7 +14,13 @@ namespace UnMango.Pulumi.Pihole.Outputs
     [OutputType]
     public sealed class GetDnsRecordsRecordResult
     {
+        /// <summary>
+        /// DNS record domain
+        /// </summary>
         public readonly string Domain;
+        /// <summary>
+        /// IP address where traffic is routed to from the DNS record domain
+        /// </summary>
         public readonly string Ip;
 
         [OutputConstructor]

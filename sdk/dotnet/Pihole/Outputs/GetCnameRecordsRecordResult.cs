@@ -14,7 +14,13 @@ namespace UnMango.Pulumi.Pihole.Outputs
     [OutputType]
     public sealed class GetCnameRecordsRecordResult
     {
+        /// <summary>
+        /// CNAME record domain
+        /// </summary>
         public readonly string Domain;
+        /// <summary>
+        /// CNAME target value where traffic is routed to from the domain
+        /// </summary>
         public readonly string Target;
 
         [OutputConstructor]

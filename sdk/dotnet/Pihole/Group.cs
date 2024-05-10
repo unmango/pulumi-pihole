@@ -34,7 +34,7 @@ namespace UnMango.Pulumi.Pihole
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import pihole:index/group:Group group 1
+    /// $ pulumi import pihole:index/group:Group group 1
     /// ```
     /// </summary>
     [PiholeResourceType("pihole:index/group:Group")]
