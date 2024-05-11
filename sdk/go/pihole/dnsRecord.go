@@ -44,9 +44,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import pihole:index/dnsRecord:DnsRecord record foo.com
-//
+// $ pulumi import pihole:index/dnsRecord:DnsRecord record foo.com
 // ```
 type DnsRecord struct {
 	pulumi.CustomResourceState
