@@ -35,7 +35,7 @@ namespace UnMango.Pulumi.Pihole
     /// ## Import
     /// 
     /// ```sh
-    ///  $ pulumi import pihole:index/cnameRecord:CnameRecord record foo.com
+    /// $ pulumi import pihole:index/cnameRecord:CnameRecord record foo.com
     /// ```
     /// </summary>
     [PiholeResourceType("pihole:index/cnameRecord:CnameRecord")]

@@ -11,21 +11,53 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupsGroup {
+    /**
+     * @return Group description
+     * 
+     */
     private String description;
+    /**
+     * @return Whether the group is enabled
+     * 
+     */
     private Boolean enabled;
+    /**
+     * @return Group ID
+     * 
+     */
     private Integer id;
+    /**
+     * @return Name of the group
+     * 
+     */
     private String name;
 
     private GetGroupsGroup() {}
+    /**
+     * @return Group description
+     * 
+     */
     public String description() {
         return this.description;
     }
+    /**
+     * @return Whether the group is enabled
+     * 
+     */
     public Boolean enabled() {
         return this.enabled;
     }
+    /**
+     * @return Group ID
+     * 
+     */
     public Integer id() {
         return this.id;
     }
+    /**
+     * @return Name of the group
+     * 
+     */
     public String name() {
         return this.name;
     }
