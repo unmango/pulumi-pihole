@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import pihole:index/cnameRecord:CnameRecord record foo.com
+ * $ pulumi import pihole:index/cnameRecord:CnameRecord record foo.com
  * ```
  */
 export class CnameRecord extends pulumi.CustomResource {
