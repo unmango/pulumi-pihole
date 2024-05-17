@@ -114,7 +114,7 @@ class DnsRecord(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import pihole:index/dnsRecord:DnsRecord record foo.com
+        $ pulumi import pihole:index/dnsRecord:DnsRecord record foo.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -145,7 +145,7 @@ class DnsRecord(pulumi.CustomResource):
         ## Import
 
         ```sh
-         $ pulumi import pihole:index/dnsRecord:DnsRecord record foo.com
+        $ pulumi import pihole:index/dnsRecord:DnsRecord record foo.com
         ```
 
         :param str resource_name: The name of the resource.
