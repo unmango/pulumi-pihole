@@ -14,7 +14,7 @@ RUN apt-get update && \
 # See README.md
 
 # Install go
-ARG GO_VERSION=1.21.4
+ARG GO_VERSION=1.22.3
 RUN rm -rf /usr/local/go && \
     wget -O- https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz | \
     tar -C /usr/local -xzf -
@@ -35,7 +35,7 @@ RUN rm -rf /usr/local/bin/pulumictl && \
     tar -C /usr/local/bin -xzf -
 
 # Install nodejs
-ARG NODEJS_VERSION=v16.16.0
+ARG NODEJS_VERSION=20.12.2
 ARG NODEJS_PKG=node-${NODEJS_VERSION}-linux-x64
 ARG NODEJS_TARBALL=${NODEJS_PKG}.tar.xz
 RUN rm -rf /usr/local/node && \

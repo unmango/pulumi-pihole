@@ -1,6 +1,6 @@
 module github.com/unmango/pulumi/pulumi-pihole/examples
 
-go 1.21
+go 1.22.3
 
 require github.com/pulumi/pulumi/pkg/v3 v3.103.1
 
