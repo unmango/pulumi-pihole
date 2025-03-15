@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * A construct to associate clients with allow/deny lists and/or adlists
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -40,18 +42,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var group = new Group(&#34;group&#34;, GroupArgs.builder()        
+ *         var group = new Group(&#34;group&#34;, GroupArgs.builder()
  *             .description(&#34;A group for clients with more relaxed allow/deny rules&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import pihole:index/group:Group group 1
+ * $ pulumi import pihole:index/group:Group group 1
  * ```
  * 
  */

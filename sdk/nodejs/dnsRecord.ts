@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- *  $ pulumi import pihole:index/dnsRecord:DnsRecord record foo.com
+ * $ pulumi import pihole:index/dnsRecord:DnsRecord record foo.com
  * ```
  */
 export class DnsRecord extends pulumi.CustomResource {

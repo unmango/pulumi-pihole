@@ -9,13 +9,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDnsRecordsRecord {
+    /**
+     * @return DNS record domain
+     * 
+     */
     private String domain;
+    /**
+     * @return IP address where traffic is routed to from the DNS record domain
+     * 
+     */
     private String ip;
 
     private GetDnsRecordsRecord() {}
+    /**
+     * @return DNS record domain
+     * 
+     */
     public String domain() {
         return this.domain;
     }
+    /**
+     * @return IP address where traffic is routed to from the DNS record domain
+     * 
+     */
     public String ip() {
         return this.ip;
     }

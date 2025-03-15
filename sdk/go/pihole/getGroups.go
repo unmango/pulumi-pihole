@@ -25,7 +25,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pihole.GetCnameRecords(ctx, nil, nil)
+//			_, err := pihole.GetCnameRecords(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -53,13 +53,9 @@ type GetGroupsResult struct {
 }
 
 func GetGroupsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetGroupsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetGroupsResult, error) {
-		r, err := GetGroups(ctx, opts...)
-		var s GetGroupsResult
-		if r != nil {
-			s = *r
-		}
-		return s, err
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetGroupsResultOutput, error) {
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("pihole:index/getGroups:getGroups", nil, GetGroupsResultOutput{}, options).(GetGroupsResultOutput), nil
 	}).(GetGroupsResultOutput)
 }
 

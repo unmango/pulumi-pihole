@@ -25,7 +25,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pihole.GetDnsRecords(ctx, nil, nil)
+//			_, err := pihole.GetDnsRecords(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -53,13 +53,9 @@ type GetDnsRecordsResult struct {
 }
 
 func GetDnsRecordsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetDnsRecordsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetDnsRecordsResult, error) {
-		r, err := GetDnsRecords(ctx, opts...)
-		var s GetDnsRecordsResult
-		if r != nil {
-			s = *r
-		}
-		return s, err
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetDnsRecordsResultOutput, error) {
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("pihole:index/getDnsRecords:getDnsRecords", nil, GetDnsRecordsResultOutput{}, options).(GetDnsRecordsResultOutput), nil
 	}).(GetDnsRecordsResultOutput)
 }
 

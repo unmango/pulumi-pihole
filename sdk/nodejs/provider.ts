@@ -34,7 +34,7 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly caFile!: pulumi.Output<string | undefined>;
     /**
-     * The admin password used to login to the admin dashboard. Conflicts with `api_token`.
+     * The admin password used to login to the admin dashboard. Conflicts with `apiToken`.
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
@@ -76,7 +76,7 @@ export interface ProviderArgs {
      */
     caFile?: pulumi.Input<string>;
     /**
-     * The admin password used to login to the admin dashboard. Conflicts with `api_token`.
+     * The admin password used to login to the admin dashboard. Conflicts with `apiToken`.
      */
     password?: pulumi.Input<string>;
     /**

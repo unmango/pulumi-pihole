@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 
@@ -75,10 +80,7 @@ def get_dns_records(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGet
     return AwaitableGetDnsRecordsResult(
         id=pulumi.get(__ret__, 'id'),
         records=pulumi.get(__ret__, 'records'))
-
-
-@_utilities.lift_output_func(get_dns_records)
-def get_dns_records_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsRecordsResult]:
+def get_dns_records_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsRecordsResult]:
     """
     ## Example Usage
 
@@ -89,4 +91,9 @@ def get_dns_records_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulum
     records = pihole.get_dns_records()
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('pihole:index/getDnsRecords:getDnsRecords', __args__, opts=opts, typ=GetDnsRecordsResult)
+    return __ret__.apply(lambda __response__: GetDnsRecordsResult(
+        id=pulumi.get(__response__, 'id'),
+        records=pulumi.get(__response__, 'records')))

@@ -25,7 +25,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := pihole.GetDomains(ctx, nil, nil)
+//			_, err := pihole.GetDomains(ctx, &pihole.GetDomainsArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -52,6 +52,7 @@ func GetDomains(ctx *pulumi.Context, args *GetDomainsArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getDomains.
 type GetDomainsArgs struct {
+	// Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
 	Type *string `pulumi:"type"`
 }
 
@@ -66,20 +67,17 @@ type GetDomainsResult struct {
 }
 
 func GetDomainsOutput(ctx *pulumi.Context, args GetDomainsOutputArgs, opts ...pulumi.InvokeOption) GetDomainsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDomainsResult, error) {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetDomainsResultOutput, error) {
 			args := v.(GetDomainsArgs)
-			r, err := GetDomains(ctx, &args, opts...)
-			var s GetDomainsResult
-			if r != nil {
-				s = *r
-			}
-			return s, err
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("pihole:index/getDomains:getDomains", args, GetDomainsResultOutput{}, options).(GetDomainsResultOutput), nil
 		}).(GetDomainsResultOutput)
 }
 
 // A collection of arguments for invoking getDomains.
 type GetDomainsOutputArgs struct {
+	// Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 

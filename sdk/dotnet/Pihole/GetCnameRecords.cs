@@ -13,9 +13,7 @@ namespace UnMango.Pulumi.Pihole
     public static class GetCnameRecords
     {
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -29,16 +27,12 @@ namespace UnMango.Pulumi.Pihole
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCnameRecordsResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCnameRecordsResult>("pihole:index/getCnameRecords:getCnameRecords", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -52,10 +46,27 @@ namespace UnMango.Pulumi.Pihole
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetCnameRecordsResult> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCnameRecordsResult>("pihole:index/getCnameRecords:getCnameRecords", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pihole = Pulumi.Pihole;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var records = Pihole.GetCnameRecords.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCnameRecordsResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCnameRecordsResult>("pihole:index/getCnameRecords:getCnameRecords", InvokeArgs.Empty, options.WithDefaults());
     }
 

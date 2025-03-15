@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getDnsRecords(opts?: pulumi.InvokeOptions): Promise<GetDnsRecordsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pihole:index/getDnsRecords:getDnsRecords", {
     }, opts);
@@ -46,6 +45,8 @@ export interface GetDnsRecordsResult {
  * const records = pihole.getDnsRecords({});
  * ```
  */
-export function getDnsRecordsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsRecordsResult> {
-    return pulumi.output(getDnsRecords(opts))
+export function getDnsRecordsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDnsRecordsResult> {
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pihole:index/getDnsRecords:getDnsRecords", {
+    }, opts);
 }

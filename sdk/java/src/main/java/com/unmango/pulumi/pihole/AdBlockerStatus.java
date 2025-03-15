@@ -15,6 +15,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -36,13 +38,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var status = new AdBlockerStatus(&#34;status&#34;, AdBlockerStatusArgs.builder()        
+ *         var status = new AdBlockerStatus(&#34;status&#34;, AdBlockerStatusArgs.builder()
  *             .enabled(true)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="pihole:index/adBlockerStatus:AdBlockerStatus")
