@@ -21,7 +21,7 @@ builds:
       - -X github.com/unmango/pulumi-pihole/provider/pkg/version.Version={{.Tag }}
     main: ./cmd/pulumi-resource-pihole/
 changelog:
-  skip: true
+  disable: true
 release:
   disable: false
   prerelease: auto
