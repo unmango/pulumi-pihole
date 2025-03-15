@@ -15,8 +15,8 @@ TESTPARALLELISM  := 4
 
 WORKING_DIR      := $(shell pwd)
 
-GO_MAJOR_VERSION := $(shell go version | cut -c 14- | cut -d' ' -f1 | cut -d'.' -f1)
-GO_MINOR_VERSION := $(shell go version | cut -c 14- | cut -d' ' -f1 | cut -d'.' -f2)
+GO_MAJOR_VERSION := $(shell go1.22.1 version | cut -c 14- | cut -d' ' -f1 | cut -d'.' -f1)
+GO_MINOR_VERSION := $(shell go1.22.1 version | cut -c 14- | cut -d' ' -f1 | cut -d'.' -f2)
 REQUIRED_GO_MAJOR_VERSION := 1
 REQUIRED_GO_MINOR_VERSION := 22
 GO_VERSION_VALIDATION_ERR_MSG := Golang version $(REQUIRED_GO_MAJOR_VERSION).$(REQUIRED_GO_MINOR_VERSION) is required
