@@ -10,7 +10,7 @@
   ],
   "ignorePaths": [
     "**/node_modules/**",
-    "examples/**",
-    "sdk/**"
+    "**/examples/**",
+    "**/sdk/**"
   ]
 }
