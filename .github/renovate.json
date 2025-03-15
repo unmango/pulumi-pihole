@@ -6,7 +6,7 @@
   ],
   "timezone": "America/Chicago",
   "schedule": [
-    "before 4 am on the first day of the month"
+    "before 4am on the first day of the month"
   ],
   "ignorePaths": [
     "**/node_modules/**",
