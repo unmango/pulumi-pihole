@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getCnameRecords(opts?: pulumi.InvokeOptions): Promise<GetCnameRecordsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pihole:index/getCnameRecords:getCnameRecords", {
     }, opts);
@@ -46,6 +45,8 @@ export interface GetCnameRecordsResult {
  * const records = pihole.getCnameRecords({});
  * ```
  */
-export function getCnameRecordsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCnameRecordsResult> {
-    return pulumi.output(getCnameRecords(opts))
+export function getCnameRecordsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCnameRecordsResult> {
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pihole:index/getCnameRecords:getCnameRecords", {
+    }, opts);
 }

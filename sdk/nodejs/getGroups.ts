@@ -17,7 +17,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getGroups(opts?: pulumi.InvokeOptions): Promise<GetGroupsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pihole:index/getGroups:getGroups", {
     }, opts);
@@ -46,6 +45,8 @@ export interface GetGroupsResult {
  * const records = pihole.getCnameRecords({});
  * ```
  */
-export function getGroupsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupsResult> {
-    return pulumi.output(getGroups(opts))
+export function getGroupsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupsResult> {
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pihole:index/getGroups:getGroups", {
+    }, opts);
 }

@@ -30,7 +30,7 @@ Object.defineProperty(exports, "caFile", {
 });
 
 /**
- * The admin password used to login to the admin dashboard. Conflicts with `api_token`.
+ * The admin password used to login to the admin dashboard. Conflicts with `apiToken`.
  */
 export declare const password: string | undefined;
 Object.defineProperty(exports, "password", {

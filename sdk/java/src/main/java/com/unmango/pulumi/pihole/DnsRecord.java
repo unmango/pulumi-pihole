@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Manages a Pi-hole DNS record
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -38,7 +40,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var record = new DnsRecord(&#34;record&#34;, DnsRecordArgs.builder()        
+ *         var record = new DnsRecord(&#34;record&#34;, DnsRecordArgs.builder()
  *             .domain(&#34;foo.com&#34;)
  *             .ip(&#34;127.0.0.1&#34;)
  *             .build());
@@ -46,11 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * ```sh
- *  $ pulumi import pihole:index/dnsRecord:DnsRecord record foo.com
+ * $ pulumi import pihole:index/dnsRecord:DnsRecord record foo.com
  * ```
  * 
  */

@@ -13,9 +13,7 @@ namespace UnMango.Pulumi.Pihole
     public static class GetDomains
     {
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -34,16 +32,12 @@ namespace UnMango.Pulumi.Pihole
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDomainsResult> InvokeAsync(GetDomainsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainsResult>("pihole:index/getDomains:getDomains", args ?? new GetDomainsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -62,16 +56,41 @@ namespace UnMango.Pulumi.Pihole
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDomainsResult> Invoke(GetDomainsInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainsResult>("pihole:index/getDomains:getDomains", args ?? new GetDomainsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pihole = Pulumi.Pihole;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var all = Pihole.GetDomains.Invoke();
+        /// 
+        ///     var denied = Pihole.GetDomains.Invoke(new()
+        ///     {
+        ///         Type = "deny",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDomainsResult> Invoke(GetDomainsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainsResult>("pihole:index/getDomains:getDomains", args ?? new GetDomainsInvokeArgs(), options.WithDefaults());
     }
 
 
     public sealed class GetDomainsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
+        /// </summary>
         [Input("type")]
         public string? Type { get; set; }
 
@@ -83,6 +102,9 @@ namespace UnMango.Pulumi.Pihole
 
     public sealed class GetDomainsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

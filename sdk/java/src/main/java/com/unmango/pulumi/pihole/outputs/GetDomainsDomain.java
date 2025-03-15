@@ -12,33 +12,89 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDomainsDomain {
+    /**
+     * @return Comments associated with the domain
+     * 
+     */
     private String comment;
+    /**
+     * @return Domain
+     * 
+     */
     private String domain;
+    /**
+     * @return Whether the domain rule is enabled
+     * 
+     */
     private Boolean enabled;
+    /**
+     * @return Groups to which the domain is associated
+     * 
+     */
     private List<Integer> groupIds;
+    /**
+     * @return Domain ID
+     * 
+     */
     private Integer id;
+    /**
+     * @return Whether the doamin is on the allow or deny list
+     * 
+     */
     private String type;
+    /**
+     * @return Whether the domain should be interpreted using a wildcard parser
+     * 
+     */
     private Boolean wildcard;
 
     private GetDomainsDomain() {}
+    /**
+     * @return Comments associated with the domain
+     * 
+     */
     public String comment() {
         return this.comment;
     }
+    /**
+     * @return Domain
+     * 
+     */
     public String domain() {
         return this.domain;
     }
+    /**
+     * @return Whether the domain rule is enabled
+     * 
+     */
     public Boolean enabled() {
         return this.enabled;
     }
+    /**
+     * @return Groups to which the domain is associated
+     * 
+     */
     public List<Integer> groupIds() {
         return this.groupIds;
     }
+    /**
+     * @return Domain ID
+     * 
+     */
     public Integer id() {
         return this.id;
     }
+    /**
+     * @return Whether the doamin is on the allow or deny list
+     * 
+     */
     public String type() {
         return this.type;
     }
+    /**
+     * @return Whether the domain should be interpreted using a wildcard parser
+     * 
+     */
     public Boolean wildcard() {
         return this.wildcard;
     }

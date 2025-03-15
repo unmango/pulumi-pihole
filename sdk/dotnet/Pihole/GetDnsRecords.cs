@@ -13,9 +13,7 @@ namespace UnMango.Pulumi.Pihole
     public static class GetDnsRecords
     {
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -29,16 +27,12 @@ namespace UnMango.Pulumi.Pihole
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDnsRecordsResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDnsRecordsResult>("pihole:index/getDnsRecords:getDnsRecords", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -52,10 +46,27 @@ namespace UnMango.Pulumi.Pihole
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDnsRecordsResult> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDnsRecordsResult>("pihole:index/getDnsRecords:getDnsRecords", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Pihole = Pulumi.Pihole;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var records = Pihole.GetDnsRecords.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDnsRecordsResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnsRecordsResult>("pihole:index/getDnsRecords:getDnsRecords", InvokeArgs.Empty, options.WithDefaults());
     }
 

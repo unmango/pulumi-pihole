@@ -6,29 +6,74 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 export interface GetCnameRecordsRecord {
+    /**
+     * CNAME record domain
+     */
     domain: string;
+    /**
+     * CNAME target value where traffic is routed to from the domain
+     */
     target: string;
 }
 
 export interface GetDnsRecordsRecord {
+    /**
+     * DNS record domain
+     */
     domain: string;
+    /**
+     * IP address where traffic is routed to from the DNS record domain
+     */
     ip: string;
 }
 
 export interface GetDomainsDomain {
+    /**
+     * Comments associated with the domain
+     */
     comment: string;
+    /**
+     * Domain
+     */
     domain: string;
+    /**
+     * Whether the domain rule is enabled
+     */
     enabled: boolean;
+    /**
+     * Groups to which the domain is associated
+     */
     groupIds: number[];
+    /**
+     * Domain ID
+     */
     id: number;
+    /**
+     * Whether the doamin is on the allow or deny list
+     */
     type: string;
+    /**
+     * Whether the domain should be interpreted using a wildcard parser
+     */
     wildcard: boolean;
 }
 
 export interface GetGroupsGroup {
+    /**
+     * Group description
+     */
     description: string;
+    /**
+     * Whether the group is enabled
+     */
     enabled: boolean;
+    /**
+     * Group ID
+     */
     id: number;
+    /**
+     * Name of the group
+     */
     name: string;
 }
 

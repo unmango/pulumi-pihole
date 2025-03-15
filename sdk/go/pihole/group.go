@@ -42,9 +42,7 @@ import (
 // ## Import
 //
 // ```sh
-//
-//	$ pulumi import pihole:index/group:Group group 1
-//
+// $ pulumi import pihole:index/group:Group group 1
 // ```
 type Group struct {
 	pulumi.CustomResourceState

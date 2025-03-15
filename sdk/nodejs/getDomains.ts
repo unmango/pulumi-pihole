@@ -21,7 +21,6 @@ import * as utilities from "./utilities";
  */
 export function getDomains(args?: GetDomainsArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("pihole:index/getDomains:getDomains", {
         "type": args.type,
@@ -32,6 +31,9 @@ export function getDomains(args?: GetDomainsArgs, opts?: pulumi.InvokeOptions): 
  * A collection of arguments for invoking getDomains.
  */
 export interface GetDomainsArgs {
+    /**
+     * Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
+     */
     type?: string;
 }
 
@@ -65,13 +67,20 @@ export interface GetDomainsResult {
  * });
  * ```
  */
-export function getDomainsOutput(args?: GetDomainsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainsResult> {
-    return pulumi.output(args).apply((a: any) => getDomains(a, opts))
+export function getDomainsOutput(args?: GetDomainsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainsResult> {
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("pihole:index/getDomains:getDomains", {
+        "type": args.type,
+    }, opts);
 }
 
 /**
  * A collection of arguments for invoking getDomains.
  */
 export interface GetDomainsOutputArgs {
+    /**
+     * Filter on allowed or denied domains. Must be either 'allow' or 'deny'.
+     */
     type?: pulumi.Input<string>;
 }

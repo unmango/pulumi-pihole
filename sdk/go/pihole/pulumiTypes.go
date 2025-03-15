@@ -14,7 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type GetCnameRecordsRecord struct {
+	// CNAME record domain
 	Domain string `pulumi:"domain"`
+	// CNAME target value where traffic is routed to from the domain
 	Target string `pulumi:"target"`
 }
 
@@ -30,7 +32,9 @@ type GetCnameRecordsRecordInput interface {
 }
 
 type GetCnameRecordsRecordArgs struct {
+	// CNAME record domain
 	Domain pulumi.StringInput `pulumi:"domain"`
+	// CNAME target value where traffic is routed to from the domain
 	Target pulumi.StringInput `pulumi:"target"`
 }
 
@@ -85,10 +89,12 @@ func (o GetCnameRecordsRecordOutput) ToGetCnameRecordsRecordOutputWithContext(ct
 	return o
 }
 
+// CNAME record domain
 func (o GetCnameRecordsRecordOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCnameRecordsRecord) string { return v.Domain }).(pulumi.StringOutput)
 }
 
+// CNAME target value where traffic is routed to from the domain
 func (o GetCnameRecordsRecordOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCnameRecordsRecord) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -114,8 +120,10 @@ func (o GetCnameRecordsRecordArrayOutput) Index(i pulumi.IntInput) GetCnameRecor
 }
 
 type GetDnsRecordsRecord struct {
+	// DNS record domain
 	Domain string `pulumi:"domain"`
-	Ip     string `pulumi:"ip"`
+	// IP address where traffic is routed to from the DNS record domain
+	Ip string `pulumi:"ip"`
 }
 
 // GetDnsRecordsRecordInput is an input type that accepts GetDnsRecordsRecordArgs and GetDnsRecordsRecordOutput values.
@@ -130,8 +138,10 @@ type GetDnsRecordsRecordInput interface {
 }
 
 type GetDnsRecordsRecordArgs struct {
+	// DNS record domain
 	Domain pulumi.StringInput `pulumi:"domain"`
-	Ip     pulumi.StringInput `pulumi:"ip"`
+	// IP address where traffic is routed to from the DNS record domain
+	Ip pulumi.StringInput `pulumi:"ip"`
 }
 
 func (GetDnsRecordsRecordArgs) ElementType() reflect.Type {
@@ -185,10 +195,12 @@ func (o GetDnsRecordsRecordOutput) ToGetDnsRecordsRecordOutputWithContext(ctx co
 	return o
 }
 
+// DNS record domain
 func (o GetDnsRecordsRecordOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDnsRecordsRecord) string { return v.Domain }).(pulumi.StringOutput)
 }
 
+// IP address where traffic is routed to from the DNS record domain
 func (o GetDnsRecordsRecordOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDnsRecordsRecord) string { return v.Ip }).(pulumi.StringOutput)
 }
@@ -214,13 +226,20 @@ func (o GetDnsRecordsRecordArrayOutput) Index(i pulumi.IntInput) GetDnsRecordsRe
 }
 
 type GetDomainsDomain struct {
-	Comment  string `pulumi:"comment"`
-	Domain   string `pulumi:"domain"`
-	Enabled  bool   `pulumi:"enabled"`
-	GroupIds []int  `pulumi:"groupIds"`
-	Id       int    `pulumi:"id"`
-	Type     string `pulumi:"type"`
-	Wildcard bool   `pulumi:"wildcard"`
+	// Comments associated with the domain
+	Comment string `pulumi:"comment"`
+	// Domain
+	Domain string `pulumi:"domain"`
+	// Whether the domain rule is enabled
+	Enabled bool `pulumi:"enabled"`
+	// Groups to which the domain is associated
+	GroupIds []int `pulumi:"groupIds"`
+	// Domain ID
+	Id int `pulumi:"id"`
+	// Whether the doamin is on the allow or deny list
+	Type string `pulumi:"type"`
+	// Whether the domain should be interpreted using a wildcard parser
+	Wildcard bool `pulumi:"wildcard"`
 }
 
 // GetDomainsDomainInput is an input type that accepts GetDomainsDomainArgs and GetDomainsDomainOutput values.
@@ -235,13 +254,20 @@ type GetDomainsDomainInput interface {
 }
 
 type GetDomainsDomainArgs struct {
-	Comment  pulumi.StringInput   `pulumi:"comment"`
-	Domain   pulumi.StringInput   `pulumi:"domain"`
-	Enabled  pulumi.BoolInput     `pulumi:"enabled"`
+	// Comments associated with the domain
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// Domain
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// Whether the domain rule is enabled
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Groups to which the domain is associated
 	GroupIds pulumi.IntArrayInput `pulumi:"groupIds"`
-	Id       pulumi.IntInput      `pulumi:"id"`
-	Type     pulumi.StringInput   `pulumi:"type"`
-	Wildcard pulumi.BoolInput     `pulumi:"wildcard"`
+	// Domain ID
+	Id pulumi.IntInput `pulumi:"id"`
+	// Whether the doamin is on the allow or deny list
+	Type pulumi.StringInput `pulumi:"type"`
+	// Whether the domain should be interpreted using a wildcard parser
+	Wildcard pulumi.BoolInput `pulumi:"wildcard"`
 }
 
 func (GetDomainsDomainArgs) ElementType() reflect.Type {
@@ -295,30 +321,37 @@ func (o GetDomainsDomainOutput) ToGetDomainsDomainOutputWithContext(ctx context.
 	return o
 }
 
+// Comments associated with the domain
 func (o GetDomainsDomainOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainsDomain) string { return v.Comment }).(pulumi.StringOutput)
 }
 
+// Domain
 func (o GetDomainsDomainOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainsDomain) string { return v.Domain }).(pulumi.StringOutput)
 }
 
+// Whether the domain rule is enabled
 func (o GetDomainsDomainOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainsDomain) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Groups to which the domain is associated
 func (o GetDomainsDomainOutput) GroupIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v GetDomainsDomain) []int { return v.GroupIds }).(pulumi.IntArrayOutput)
 }
 
+// Domain ID
 func (o GetDomainsDomainOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDomainsDomain) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Whether the doamin is on the allow or deny list
 func (o GetDomainsDomainOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainsDomain) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Whether the domain should be interpreted using a wildcard parser
 func (o GetDomainsDomainOutput) Wildcard() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainsDomain) bool { return v.Wildcard }).(pulumi.BoolOutput)
 }
@@ -344,10 +377,14 @@ func (o GetDomainsDomainArrayOutput) Index(i pulumi.IntInput) GetDomainsDomainOu
 }
 
 type GetGroupsGroup struct {
+	// Group description
 	Description string `pulumi:"description"`
-	Enabled     bool   `pulumi:"enabled"`
-	Id          int    `pulumi:"id"`
-	Name        string `pulumi:"name"`
+	// Whether the group is enabled
+	Enabled bool `pulumi:"enabled"`
+	// Group ID
+	Id int `pulumi:"id"`
+	// Name of the group
+	Name string `pulumi:"name"`
 }
 
 // GetGroupsGroupInput is an input type that accepts GetGroupsGroupArgs and GetGroupsGroupOutput values.
@@ -362,10 +399,14 @@ type GetGroupsGroupInput interface {
 }
 
 type GetGroupsGroupArgs struct {
+	// Group description
 	Description pulumi.StringInput `pulumi:"description"`
-	Enabled     pulumi.BoolInput   `pulumi:"enabled"`
-	Id          pulumi.IntInput    `pulumi:"id"`
-	Name        pulumi.StringInput `pulumi:"name"`
+	// Whether the group is enabled
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Group ID
+	Id pulumi.IntInput `pulumi:"id"`
+	// Name of the group
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetGroupsGroupArgs) ElementType() reflect.Type {
@@ -419,18 +460,22 @@ func (o GetGroupsGroupOutput) ToGetGroupsGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Group description
 func (o GetGroupsGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsGroup) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// Whether the group is enabled
 func (o GetGroupsGroupOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetGroupsGroup) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Group ID
 func (o GetGroupsGroupOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupsGroup) int { return v.Id }).(pulumi.IntOutput)
 }
 
+// Name of the group
 func (o GetGroupsGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsGroup) string { return v.Name }).(pulumi.StringOutput)
 }
