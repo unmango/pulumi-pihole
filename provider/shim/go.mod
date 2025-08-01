@@ -3,7 +3,7 @@ module github.com/ryanwholey/terraform-provider-pihole/shim
 go 1.22.3
 
 require (
-	github.com/hashicorp/terraform-plugin-sdk/v2 v2.16.0
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.37.0
 	github.com/ryanwholey/terraform-provider-pihole v0.2.0
 )
 
